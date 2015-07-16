@@ -10,7 +10,6 @@
 		333E3D3A1B577B2D00F087F6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D391B577B2D00F087F6 /* main.m */; };
 		333E3D3D1B577B2D00F087F6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D3C1B577B2D00F087F6 /* AppDelegate.m */; };
 		333E3D401B577B2D00F087F6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D3F1B577B2D00F087F6 /* ViewController.m */; };
-		333E3D431B577B2D00F087F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 333E3D411B577B2D00F087F6 /* Main.storyboard */; };
 		333E3D451B577B2D00F087F6 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 333E3D441B577B2D00F087F6 /* Images.xcassets */; };
 		333E3D481B577B2D00F087F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 333E3D461B577B2D00F087F6 /* LaunchScreen.xib */; };
 		333E3D541B577B2D00F087F6 /* FakestagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D531B577B2D00F087F6 /* FakestagramTests.m */; };
@@ -34,7 +33,6 @@
 		333E3D3C1B577B2D00F087F6 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		333E3D3E1B577B2D00F087F6 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		333E3D3F1B577B2D00F087F6 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		333E3D421B577B2D00F087F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		333E3D441B577B2D00F087F6 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		333E3D471B577B2D00F087F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		333E3D4D1B577B2D00F087F6 /* FakestagramTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FakestagramTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,7 +83,6 @@
 				333E3D3C1B577B2D00F087F6 /* AppDelegate.m */,
 				333E3D3E1B577B2D00F087F6 /* ViewController.h */,
 				333E3D3F1B577B2D00F087F6 /* ViewController.m */,
-				333E3D411B577B2D00F087F6 /* Main.storyboard */,
 				333E3D441B577B2D00F087F6 /* Images.xcassets */,
 				333E3D461B577B2D00F087F6 /* LaunchScreen.xib */,
 				333E3D371B577B2D00F087F6 /* Supporting Files */,
@@ -199,7 +196,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				333E3D431B577B2D00F087F6 /* Main.storyboard in Resources */,
 				333E3D481B577B2D00F087F6 /* LaunchScreen.xib in Resources */,
 				333E3D451B577B2D00F087F6 /* Images.xcassets in Resources */,
 			);
@@ -244,14 +240,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		333E3D411B577B2D00F087F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				333E3D421B577B2D00F087F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		333E3D461B577B2D00F087F6 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
