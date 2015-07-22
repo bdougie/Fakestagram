@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>9D696FFE-85AD-4816-BD04-ACAC3C4647DD</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>Fakestagram</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>DB09E765A3BFB8F33FB1FDB4FF5346D01B3678A7</key>
 		<string>github.com:brianllamar/Fakestagram.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Fakestagram.xcodeproj/project.xcworkspace</string>
+	<string>Fakestagram.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>DB09E765A3BFB8F33FB1FDB4FF5346D01B3678A7</key>
