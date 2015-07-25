@@ -71,7 +71,7 @@
 - (User *) randomUser {
     User *user = [[User alloc] init];
     
-    user.userName = [self randomStringOfLength:arc4random_uniform(10)+  2];
+    user.userName = [self randomStringOfLength:arc4random_uniform(10) + 2];
     
     NSString *firstName = [self randomStringOfLength:arc4random_uniform(7) + 2];
     NSString *lastName = [self randomStringOfLength:arc4random_uniform(12) + 2];
@@ -95,7 +95,7 @@
     NSMutableString *randomSentence = [[NSMutableString alloc] init];
     
     for (int i = 0; i <= wordCount; i++) {
-        NSString *randomWord = [self randomStringOfLength:arc4random_uniform(12) +2];
+        NSString *randomWord = [self randomStringOfLength:arc4random_uniform(12) + 2];
         [randomSentence appendFormat:@"%@ ", randomWord];
     }
     

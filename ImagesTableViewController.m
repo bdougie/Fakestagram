@@ -39,6 +39,14 @@
 
 #pragma mark - Table view data source
 
+
+- (NSMutableArray *)items {
+    NSArray *arrayItems = [DataSource sharedInstance].mediaItems;
+    NSMutableArray *items = [arrayItems mutableCopy];
+    
+    return items;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self items].count;
 }
@@ -95,6 +103,7 @@
     }
 }
 
+<<<<<<< HEAD
 - (NSMutableArray *)items {
     
     NSArray *arrayItems = [DataSource sharedInstance].mediaItems;
@@ -102,6 +111,8 @@
     
     return items;
 }
+=======
+>>>>>>> add-usernames-capotions
 
 /*
 // Override to support rearranging the table view.

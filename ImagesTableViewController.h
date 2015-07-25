@@ -9,4 +9,10 @@
 #import <UIKit/UIKit.h>
 
 @interface ImagesTableViewController : UITableViewController
+<<<<<<< HEAD
+=======
+
+@property (nonatomic, strong) NSMutableArray *images;
+
+>>>>>>> add-usernames-capotions
 @end
