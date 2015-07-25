@@ -23,6 +23,10 @@
 		33F6CD991B5FD76800EEC211 /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD8F1B5FD76800EEC211 /* 8.jpg */; };
 		33F6CD9A1B5FD76800EEC211 /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD901B5FD76800EEC211 /* 9.jpg */; };
 		33F6CD9B1B5FD76800EEC211 /* 10.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD911B5FD76800EEC211 /* 10.jpg */; };
+		33F6CD9E1B63BB0F00EEC211 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CD9D1B63BB0F00EEC211 /* User.m */; };
+		33F6CDA11B63BC0F00EEC211 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA01B63BC0F00EEC211 /* Media.m */; };
+		33F6CDA41B63BF8400EEC211 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA31B63BF8400EEC211 /* Comment.m */; };
+		33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA61B63C04600EEC211 /* DataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +62,14 @@
 		33F6CD8F1B5FD76800EEC211 /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		33F6CD901B5FD76800EEC211 /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
 		33F6CD911B5FD76800EEC211 /* 10.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 10.jpg; sourceTree = "<group>"; };
+		33F6CD9C1B63BB0F00EEC211 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = ../User.h; sourceTree = "<group>"; };
+		33F6CD9D1B63BB0F00EEC211 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = ../User.m; sourceTree = "<group>"; };
+		33F6CD9F1B63BC0F00EEC211 /* Media.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Media.h; sourceTree = "<group>"; };
+		33F6CDA01B63BC0F00EEC211 /* Media.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Media.m; sourceTree = "<group>"; };
+		33F6CDA21B63BF8400EEC211 /* Comment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		33F6CDA31B63BF8400EEC211 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
+		33F6CDA51B63C04600EEC211 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		33F6CDA61B63C04600EEC211 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +111,14 @@
 		333E3D361B577B2D00F087F6 /* Fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				33F6CD9C1B63BB0F00EEC211 /* User.h */,
+				33F6CD9F1B63BC0F00EEC211 /* Media.h */,
+				33F6CDA21B63BF8400EEC211 /* Comment.h */,
+				33F6CDA31B63BF8400EEC211 /* Comment.m */,
+				33F6CDA51B63C04600EEC211 /* DataSource.h */,
+				33F6CDA61B63C04600EEC211 /* DataSource.m */,
+				33F6CDA01B63BC0F00EEC211 /* Media.m */,
+				33F6CD9D1B63BB0F00EEC211 /* User.m */,
 				33F6CD871B5FB07100EEC211 /* Images */,
 				333E3D861B57851200F087F6 /* ImagesTableViewController.h */,
 				333E3D871B57851200F087F6 /* ImagesTableViewController.m */,
@@ -264,7 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33F6CD9E1B63BB0F00EEC211 /* User.m in Sources */,
+				33F6CDA41B63BF8400EEC211 /* Comment.m in Sources */,
+				33F6CDA11B63BC0F00EEC211 /* Media.m in Sources */,
 				333E3D3D1B577B2D00F087F6 /* AppDelegate.m in Sources */,
+				33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */,
 				333E3D3A1B577B2D00F087F6 /* main.m in Sources */,
 				333E3D881B57851200F087F6 /* ImagesTableViewController.m in Sources */,
 			);
