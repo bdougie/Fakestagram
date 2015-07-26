@@ -27,6 +27,7 @@
 		33F6CDA11B63BC0F00EEC211 /* Media.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA01B63BC0F00EEC211 /* Media.m */; };
 		33F6CDA41B63BF8400EEC211 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA31B63BF8400EEC211 /* Comment.m */; };
 		33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA61B63C04600EEC211 /* DataSource.m */; };
+		33F6CDAD1B63DD7100EEC211 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,8 @@
 		33F6CDA31B63BF8400EEC211 /* Comment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		33F6CDA51B63C04600EEC211 /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
 		33F6CDA61B63C04600EEC211 /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
+		33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MediaTableViewCell.h; path = ../MediaTableViewCell.h; sourceTree = "<group>"; };
+		33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaTableViewCell.m; path = ../MediaTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 		333E3D361B577B2D00F087F6 /* Fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
+				33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */,
 				33F6CD9C1B63BB0F00EEC211 /* User.h */,
 				33F6CD9F1B63BC0F00EEC211 /* Media.h */,
 				33F6CDA21B63BF8400EEC211 /* Comment.h */,
@@ -286,6 +291,7 @@
 			files = (
 				33F6CD9E1B63BB0F00EEC211 /* User.m in Sources */,
 				33F6CDA41B63BF8400EEC211 /* Comment.m in Sources */,
+				33F6CDAD1B63DD7100EEC211 /* MediaTableViewCell.m in Sources */,
 				33F6CDA11B63BC0F00EEC211 /* Media.m in Sources */,
 				333E3D3D1B577B2D00F087F6 /* AppDelegate.m in Sources */,
 				33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */,
