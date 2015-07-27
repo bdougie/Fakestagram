@@ -10,6 +10,7 @@
 #import "Media.h"
 #import "Comment.h"
 #import "User.h"
+#import "UIColorExt.h"
 
 @interface MediaTableViewCell () {
     Media* _mediaItem;
@@ -25,6 +26,7 @@ static UIFont *lightFont;
 static UIFont *boldFont;
 static UIColor *usernameLabelGray;
 static UIColor *commentLabelGray;
+static UIColor *commentLabelOrange;
 static UIColor *linkColor;
 static NSParagraphStyle *paragraphStyle;
 
@@ -48,6 +50,7 @@ static NSParagraphStyle *paragraphStyle;
     boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
     usernameLabelGray = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1];
     commentLabelGray = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1];
+    commentLabelOrange = [UIColor pxColorWithHexValue:@"#FFA500"];
     linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1];
     
     NSMutableParagraphStyle *mutableParagraphStyle = [[NSMutableParagraphStyle alloc] init];
@@ -71,6 +74,8 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
         self.commentLabel.backgroundColor = commentLabelGray;
+        id firstObj = [self objectAtIndex:0];
+        firstObj.commentLabel.backgroundColor = commentLabelOrange;
 
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
            [self.contentView addSubview:view];
