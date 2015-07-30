@@ -41,10 +41,8 @@
 
 
 - (NSMutableArray *)items {
-    NSArray *arrayItems = [DataSource sharedInstance].mediaItems;
-    NSMutableArray *items = [arrayItems mutableCopy];
     
-    return items;
+    return [DataSource sharedInstance].mediaItems;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
