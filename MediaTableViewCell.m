@@ -74,8 +74,6 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
         self.commentLabel.backgroundColor = commentLabelGray;
-        id firstObj = [self objectAtIndex:0];
-        firstObj.commentLabel.backgroundColor = commentLabelOrange;
 
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
            [self.contentView addSubview:view];
@@ -108,7 +106,25 @@ static NSParagraphStyle *paragraphStyle;
          [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
          [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
          
+         // Increase the kerning (character spacing) of the image caption.
+         float spacing = 1.0f;
+         [commentString addAttribute:NSKernAttributeName value:@(spacing) range:NSMakeRange(0, [commentString length])];
          [commentString appendAttributedString:oneCommentString];
+         
+         // change first comment to orange
+         if ([self.mediaItem.comments indexOfObject:comment] == 0) {
+             NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
+             [commentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
+         }
+         
+         // paragraph align right for every other comment.
+         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+         paragraph.alignment = NSTextAlignmentLeft;
+
+         if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
+             NSTextTab *t = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight location:commentString.size.width options:nil];
+             paragraph.tabStops = @[t];
+         }
      }
      
      return commentString;
