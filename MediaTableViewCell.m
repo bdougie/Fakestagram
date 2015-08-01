@@ -127,7 +127,12 @@ static NSParagraphStyle *paragraphStyle;
     NSRange usernameRange = [baseString rangeOfString:self.mediaItem.user.userName];
     [mutableUsernameAndCaptionString addAttribute:NSFontAttributeName value:[boldFont fontWithSize:usernameFontSize] range:usernameRange];
     [mutableUsernameAndCaptionString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
-     
+    
+    // Increase the kerning (character spacing) of the image caption.
+    NSRange captionRange = [baseString rangeOfString:self.mediaItem.caption];
+    float spacing = 2.0f;
+    [mutableUsernameAndCaptionString addAttribute:NSKernAttributeName value:@(spacing) range:captionRange];
+    
     return mutableUsernameAndCaptionString;
 }
      
@@ -142,11 +147,6 @@ static NSParagraphStyle *paragraphStyle;
          [oneCommentString addAttribute:NSFontAttributeName value:boldFont range:usernameRange];
          [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
          
-         // Increase the kerning (character spacing) of the image caption.
-//         float spacing = 2.0f;
-//         [commentString addAttribute:NSKernAttributeName value:@(spacing) range:NSMakeRange(0, [commentString length])];
-//         [commentString appendAttributedString:oneCommentString];
-         
          // change first comment to orange
          
          if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
@@ -157,9 +157,6 @@ static NSParagraphStyle *paragraphStyle;
          // paragraph align right for every other comment.
 
          if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
-//             NSTextTab *t = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight location:commentString.size.width options:nil];
-//             paragraph.tabStops = @[t];
-//             paragraph.alignment = NSTextAlignmentLeft;
              NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
              paragraph.alignment = NSTextAlignmentRight;
              [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];

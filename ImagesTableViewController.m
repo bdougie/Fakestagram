@@ -42,7 +42,6 @@
 
 
 - (NSMutableArray *)items {
-    
     return [DataSource sharedInstance].mediaItems;
 }
 
