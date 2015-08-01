@@ -183,6 +183,9 @@ static NSParagraphStyle *paragraphStyle;
      
      self.usernameAndCaptionLabelHeightConstraint.constant = usernameLabelSize.height + 20;
      self.commentLabelHeightConstraint.constant = commentLabelSize.height + 20;
+//     NSLog(@"this height %f", self.mediaItem.image.size.height);
+     NSLog(@"this width %f", CGRectGetWidth(self.contentView.bounds));
+     // I am unsure how to make this 100 * 100 points if the height is alread 100
      self.imageHeightConstraint.constant = self.mediaItem.image.size.height / self.mediaItem.image.size.width * CGRectGetWidth(self.contentView.bounds);
      
      // Hide the line between cells
