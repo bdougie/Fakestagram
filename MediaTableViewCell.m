@@ -53,7 +53,7 @@ static NSParagraphStyle *paragraphStyle;
     lightFont = [UIFont fontWithName:@"HelveticaNeue-Thin" size:11];
     boldFont = [UIFont fontWithName:@"HelveticaNeue-Bold" size:11];
     usernameLabelGray = [UIColor colorWithRed:0.933 green:0.933 blue:0.933 alpha:1];
-    commentLabelGray = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1];
+    commentLabelGray = [UIColor colorWithRed:0.898 green:0.898 blue:0.898 alpha:1];
     commentLabelOrange = [UIColor pxColorWithHexValue:@"#FFA500"];
     linkColor = [UIColor colorWithRed:0.345 green:0.314 blue:0.427 alpha:1];
     
@@ -143,24 +143,28 @@ static NSParagraphStyle *paragraphStyle;
          [oneCommentString addAttribute:NSForegroundColorAttributeName value:linkColor range:usernameRange];
          
          // Increase the kerning (character spacing) of the image caption.
-         float spacing = 1.0f;
-         [commentString addAttribute:NSKernAttributeName value:@(spacing) range:NSMakeRange(0, [commentString length])];
-         [commentString appendAttributedString:oneCommentString];
+//         float spacing = 2.0f;
+//         [commentString addAttribute:NSKernAttributeName value:@(spacing) range:NSMakeRange(0, [commentString length])];
+//         [commentString appendAttributedString:oneCommentString];
          
          // change first comment to orange
-         if ([self.mediaItem.comments indexOfObject:comment] == 0) {
+         
+         if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
              NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
-             [commentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
+             [oneCommentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
          }
          
          // paragraph align right for every other comment.
-         NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-         paragraph.alignment = NSTextAlignmentLeft;
 
          if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
-             NSTextTab *t = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight location:commentString.size.width options:nil];
-             paragraph.tabStops = @[t];
+//             NSTextTab *t = [[NSTextTab alloc] initWithTextAlignment:NSTextAlignmentRight location:commentString.size.width options:nil];
+//             paragraph.tabStops = @[t];
+//             paragraph.alignment = NSTextAlignmentLeft;
+             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+             paragraph.alignment = NSTextAlignmentRight;
+             [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];
          }
+         [commentString appendAttributedString:oneCommentString];
      }
      
      return commentString;
