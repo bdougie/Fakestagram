@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+@class Media;
+
 @interface DataSource : NSObject
 
 +(instancetype) sharedInstance;
 @property (nonatomic, strong) NSMutableArray *mediaItems;
+
+- (void) deleteMediaItem:(Media *)item;
 
 @end

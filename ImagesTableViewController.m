@@ -30,6 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [[DataSource sharedInstance] addObserver:self forKeyPath:@"mediaItems" options:0 context:nil];
+    
     [self.tableView registerClass:[MediaTableViewCell class] forCellReuseIdentifier:@"mediaCell"];
 }
 
@@ -49,6 +51,46 @@
     return [self items].count;
 }
 
+- (void) dealloc {
+    [[DataSource sharedInstance] removeObserver:self forKeyPath:@"mediaItems"];
+}
+
+- (void) observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if (object == [DataSource sharedInstance] && [keyPath isEqualToString:@"mediaItems"]) {
+        // mediaItems changed
+        NSKeyValueChange kindOfChange = [change[NSKeyValueChangeKindKey] unsignedIntegerValue];
+        
+        if (kindOfChange == NSKeyValueChangeSetting) {
+            // set a brand new images array
+            [self.tableView reloadData];
+        } else if (kindOfChange == NSKeyValueChangeInsertion ||
+                   kindOfChange == NSKeyValueChangeRemoval ||
+                   kindOfChange == NSKeyValueChangeReplacement) {
+            // inserted, deleted, or replaced images
+                        
+            // Get a list of the index (or indices) that changed
+            NSIndexSet *indexSetOfChanges = change[NSKeyValueChangeIndexesKey];
+                        
+            NSMutableArray *indexPathsThatChanged = [NSMutableArray array];
+            [indexSetOfChanges enumerateIndexesUsingBlock:^(NSUInteger idx, BOOL *stop) {
+                NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:idx inSection:0];
+                [indexPathsThatChanged addObject:newIndexPath];
+            }];
+            
+            [self.tableView beginUpdates];
+            
+            if (kindOfChange == NSKeyValueChangeInsertion) {
+                [self.tableView insertRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            } else if (kindOfChange == NSKeyValueChangeRemoval) {
+                [self.tableView deleteRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            } else if (kindOfChange == NSKeyValueChangeReplacement) {
+                [self.tableView reloadRowsAtIndexPaths:indexPathsThatChanged withRowAnimation:UITableViewRowAnimationAutomatic];
+            }
+            
+            [self.tableView endUpdates];
+        }
+    }
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
@@ -72,9 +114,8 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-     // Delete the row from the data source
-        [[self items] removeObjectAtIndex:indexPath.row];
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+        [[DataSource sharedInstance] deleteMediaItem:item];
     }
 }
 
