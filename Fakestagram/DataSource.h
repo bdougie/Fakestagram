@@ -10,6 +10,8 @@
 
 @class Media;
 
+typedef void (^NewItemCompletetionBlock)(NSError *error);
+
 @interface DataSource : NSObject
 
 +(instancetype) sharedInstance;
@@ -17,5 +19,7 @@
 
 - (void) deleteMediaItem:(Media *)item;
 - (void) insertObject:(Media *)object inMediaItemsAtIndex:(NSUInteger)index;
+- (void) requestNewItemswithCompletionHandler:(NewItemCompletetionBlock)completionHandler;
+- (void) requestOldItemsWithCompletionHandler:(NewItemCompletetionBlock)completionHandler;
 
 @end
