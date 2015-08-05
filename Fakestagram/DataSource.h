@@ -15,7 +15,9 @@ typedef void (^NewItemCompletetionBlock)(NSError *error);
 @interface DataSource : NSObject
 
 +(instancetype) sharedInstance;
++(NSString *) instagramClientID;
 @property (nonatomic, strong) NSMutableArray *mediaItems;
+@property (nonatomic, strong, readonly) NSString *accessToken;
 
 - (void) deleteMediaItem:(Media *)item;
 - (void) insertObject:(Media *)object inMediaItemsAtIndex:(NSUInteger)index;
