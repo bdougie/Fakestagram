@@ -25,6 +25,8 @@ tignore contributors: remember to update Global/Xcode.gitignore,
 ## Obj-C/Swift specific
         *.hmap
         *.ipa
+## Breakpoints
+        Fakestagram.xcodeproj/xcuserdata/bdoug.xcuserdatad/xcdebugger
 
 # CocoaPods
 #
