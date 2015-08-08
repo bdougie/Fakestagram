@@ -1,5 +1,5 @@
 //
-//  DataSource.m
+//  DataSourcelf.m
 //  Fakestagram
 //
 //  Created by Brian Douglas on 7/25/15.
@@ -54,6 +54,8 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (storedMediaItems.count > 0) {
+                        [self populateDataWithParameters:nil completionHandler:nil];
+
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         
                         [self willChangeValueForKey:@"mediaItems"];
