@@ -50,7 +50,7 @@ NSString *const LoginViewControllerDidGetAccessTokenNotification = @"LoginViewCo
 }
 
 - (void) dealloc {
-    // remvoing this line will cause a flicker on refresh
+    // removing this line will cause a flicker on refresh
     [self clearInstagramCookies];
     
     self.webView.delegate = nil;

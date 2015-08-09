@@ -30,6 +30,7 @@
 		33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDA61B63C04600EEC211 /* DataSource.m */; };
 		33F6CDAD1B63DD7100EEC211 /* MediaTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */; };
 		33F6CDB31B64E3BF00EEC211 /* UIColorExt.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */; };
+		33FF4CDF1B7609EA00F057F2 /* MediaFullScreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */; };
 		67D0730B73AEAB49F51CD361 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBE5D74AD5560F11FA7E00D5 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -81,6 +82,8 @@
 		33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MediaTableViewCell.m; path = ../MediaTableViewCell.m; sourceTree = "<group>"; };
 		33F6CDB11B64E3BF00EEC211 /* UIColorExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorExt.h; path = ../UIColorExt.h; sourceTree = "<group>"; };
 		33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorExt.m; path = ../UIColorExt.m; sourceTree = "<group>"; };
+		33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaFullScreenViewController.h; sourceTree = "<group>"; };
+		33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaFullScreenViewController.m; sourceTree = "<group>"; };
 		B425F50CF971F462A1C437DD /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		FBE5D74AD5560F11FA7E00D5 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -131,6 +134,8 @@
 				33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */,
 				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
 				33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */,
+				33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */,
+				33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */,
 				33F6CD9C1B63BB0F00EEC211 /* User.h */,
 				33F6CD9F1B63BC0F00EEC211 /* Media.h */,
 				33F6CDA21B63BF8400EEC211 /* Comment.h */,
@@ -365,6 +370,7 @@
 				33BE8EC91B6E47A4000DCB9C /* LoginViewController.m in Sources */,
 				33F6CDA11B63BC0F00EEC211 /* Media.m in Sources */,
 				333E3D3D1B577B2D00F087F6 /* AppDelegate.m in Sources */,
+				33FF4CDF1B7609EA00F057F2 /* MediaFullScreenViewController.m in Sources */,
 				33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */,
 				333E3D3A1B577B2D00F087F6 /* main.m in Sources */,
 				333E3D881B57851200F087F6 /* ImagesTableViewController.m in Sources */,
