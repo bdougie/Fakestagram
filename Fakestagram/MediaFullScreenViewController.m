@@ -45,6 +45,14 @@
     
     self.scrollView.contentSize = self.media.image.size;
     
+    UIButton *shareButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [shareButton addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
+    [shareButton setTitle:@"Share" forState:UIControlStateNormal];
+    [shareButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
+    [shareButton setBackgroundColor:([UIColor redColor])];
+    [shareButton sizeToFit];
+    shareButton.frame = CGRectMake(280.0, 10.0, 74.0, 46.0);
+    
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
     self.doubletap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapFired:)];
@@ -54,6 +62,19 @@
     
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubletap];
+    [self.view addSubview:shareButton];
+}
+
+- (void)shareAction {
+    NSMutableArray *itemsToShare = [NSMutableArray array];
+    if (self.media.image) {
+        [itemsToShare addObject:self.media.image];
+    }
+    
+    if (itemsToShare.count > 0) {
+        UIActivityViewController *activity = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
+        [self presentViewController:activity animated:YES completion:nil];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
