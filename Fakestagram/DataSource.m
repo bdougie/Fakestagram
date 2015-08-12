@@ -195,6 +195,7 @@
         
         if (mediaItem) {
             [tmpMediaItems addObject:mediaItem];
+            [self downloadImageForMediaItem:mediaItem];
         }
     }
     

@@ -117,6 +117,14 @@
     [self infiniteScrollIfNecessary];
 }
 
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    scrollView.decelerationRate=UIScrollViewDecelerationRateFast;
+    
+    if (scrollView.dragging) {
+        NSLog(@"scroll is faster");
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MediaTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"mediaCell" forIndexPath:indexPath];
     cell.delegate = self;
