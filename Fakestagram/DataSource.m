@@ -58,7 +58,6 @@
                 
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (storedMediaItems.count > 0) {
-                        [self populateDataWithParameters:nil completionHandler:nil];
 
                         NSMutableArray *mutableMediaItems = [storedMediaItems mutableCopy];
                         

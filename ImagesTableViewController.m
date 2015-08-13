@@ -149,7 +149,8 @@
 }
 
 - (void) cell:(MediaTableViewCell *)cell didDoubleTapImageView:(UIImageView *)imageView {
-   [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
+    [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
+//   [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
 }
 
 
