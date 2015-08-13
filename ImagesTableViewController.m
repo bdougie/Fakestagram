@@ -114,11 +114,12 @@
 #pragma mark - UISCrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"scroll is faster");
     [self infiniteScrollIfNecessary];
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    scrollView.decelerationRate=UIScrollViewDecelerationRateFast;
+//    scrollView.decelerationRate=UIScrollViewDecelerationRateFast;
     
     if (scrollView.dragging) {
         NSLog(@"scroll is faster");
@@ -134,7 +135,8 @@
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+    NSLog(@"%f", self.tableView.contentOffset.y);
+    if (mediaItem.downloadState == MediaDownloadStateNeedsImage && (self.tableView.isDecelerating || self.tableView.isDragging || self.tableView.contentOffset.y == -64.0)) {
         [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
     }
 }
@@ -147,11 +149,12 @@
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (item.image) {
-        return 350;
-    } else {
-        return 150;
-    }
+    return self.view.bounds.size.width + 200;
+//    if (item.image) {
+//        return 350;
+//    } else {
+//        return 150;
+//    }
 }
 
 # pragma mark - MediaTableViewCellDelegate

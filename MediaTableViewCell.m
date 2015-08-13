@@ -121,14 +121,14 @@ static NSParagraphStyle *paragraphStyle;
                                                                      toItem:nil
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
-                                                                   constant:425];
+                                                                   constant: self.bounds.size.width];
         self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
-                                                                   constant:425];
+                                                                   constant:self.bounds.size.width];
         self.imageHeightConstraint.identifier = @"Image height constraint";
         self.imageWidthConstraint.identifier = @"Image width constraint";
         
@@ -138,7 +138,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                                        toItem:nil
                                                                                     attribute:NSLayoutAttributeNotAnAttribute
                                                                                    multiplier:1
-                                                                                     constant:100];
+                                                                                     constant:self.bounds.size.width];
         self.usernameAndCaptionLabelHeightConstraint.identifier = @"Username and caption label height constraint";
         
         self.commentLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_commentLabel
