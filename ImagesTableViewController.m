@@ -162,7 +162,6 @@
 
 - (void) cell:(MediaTableViewCell *)cell didDoubleTapImageView:(UIImageView *)imageView {
     [[DataSource sharedInstance] downloadImageForMediaItem:cell.mediaItem];
-//   [self.refreshControl addTarget:self action:@selector(refreshControlDidFire:) forControlEvents:UIControlEventValueChanged];
 }
 
 
