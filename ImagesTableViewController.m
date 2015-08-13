@@ -118,8 +118,6 @@
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    scrollView.decelerationRate=UIScrollViewDecelerationRateFast;
-    
     if (scrollView.dragging) {
         NSLog(@"scroll is faster");
     }
