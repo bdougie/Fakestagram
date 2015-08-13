@@ -119,8 +119,6 @@
 }
 
 - (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    scrollView.decelerationRate=UIScrollViewDecelerationRateFast;
-    
     if (scrollView.dragging) {
         NSLog(@"scroll is faster");
     }
@@ -148,13 +146,8 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
+    // +200 compensating for comments height
     return self.view.bounds.size.width + 200;
-//    if (item.image) {
-//        return 350;
-//    } else {
-//        return 150;
-//    }
 }
 
 # pragma mark - MediaTableViewCellDelegate
