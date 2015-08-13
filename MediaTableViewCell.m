@@ -240,7 +240,7 @@ static NSParagraphStyle *paragraphStyle;
 
 - (void) twoFingerTapFired:(UIGestureRecognizer *)sender {
     if ([sender numberOfTouches] == 2) {
-        [self.delegate cell:self didTapImageView:self.mediaImageView];
+        [self.delegate cell:self didDoubleTapImageView:self.mediaImageView];
     }
 }
 

@@ -23,6 +23,7 @@ typedef void (^NewItemCompletetionBlock)(NSError *error);
 - (void) insertObject:(Media *)object inMediaItemsAtIndex:(NSUInteger)index;
 - (void) requestNewItemswithCompletionHandler:(NewItemCompletetionBlock)completionHandler;
 - (void) requestOldItemsWithCompletionHandler:(NewItemCompletetionBlock)completionHandler;
+- (void) downloadImageForMediaItem:(Media *)mediaItem;
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem;
 
