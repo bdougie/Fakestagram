@@ -1,5 +1,5 @@
 //
-//  DataSourcelf.m
+//  DataSource.m
 //  Fakestagram
 //
 //  Created by Brian Douglas on 7/25/15.
@@ -22,7 +22,7 @@
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, assign) BOOL thereAreNomoreOlderMessages;
-@property (nonatomic, strong) AFHTTPRequestOperationManager *instangramOperationManager;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *instagramOperationManager;
 
 @end
 
@@ -168,7 +168,7 @@
         
         [mutableParameters addEntriesFromDictionary:parameters];
         
-        [self.instangramOperationManager GET:@"users/self/feed"
+        [self.instagramOperationManager GET:@"users/self/feed"
           parameters:mutableParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
               if ([responseObject isKindOfClass:[NSDictionary class]]) {
                   [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
@@ -229,7 +229,7 @@
     if (mediaItem.mediaURL && !mediaItem.image) {
         mediaItem.downloadState = MediaDownloadStateDownloadInProgress;
         
-        [self.instangramOperationManager GET:mediaItem.mediaURL.absoluteString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.instagramOperationManager GET:mediaItem.mediaURL.absoluteString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if ([responseObject isKindOfClass:[UIImage class]]) {
                 mediaItem.image = responseObject;
                 mediaItem.downloadState = MediaDownloadStateHasImage;
@@ -302,7 +302,7 @@
         
         mediaItem.likeState = LikeStateLiking;
         
-        [self.instangramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
             mediaItem.likeState = LikeStateLiked;
             
             if (completionHandler) {
@@ -315,12 +315,13 @@
                 completionHandler();
             }
         }];
+        
     } else if (mediaItem.likeState == LikeStateLiked) {
         
         mediaItem.likeState = LikeStateUnliking;
         
-        [self.instangramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = LikeStateUnliking;
+        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            mediaItem.likeState = LikeStateNotLiked;
             
             if (completionHandler) {
                 completionHandler();
@@ -337,7 +338,7 @@
 
 - (void) createOperationManager {
     NSURL *baseURL = [NSURL URLWithString:@"https://api.instagram.com/v1/"];
-    self.instangramOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    self.instagramOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     
     AFJSONResponseSerializer *jsonSerializer = [AFJSONResponseSerializer serializer];
     
@@ -345,6 +346,6 @@
     imageSerializer.imageScale = 1.0;
     
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
-    self.instangramOperationManager.responseSerializer = serializer;
+    self.instagramOperationManager.responseSerializer = serializer;
 }
 @end

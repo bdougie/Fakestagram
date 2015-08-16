@@ -20,6 +20,7 @@
 @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
+@property (nonatomic, strong) UILabel *likeCountLabel;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
@@ -58,6 +59,9 @@ static NSParagraphStyle *paragraphStyle;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
     self.likeButton.likeButtonState = mediaItem.likeState;
+
+    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%d", _likeAmount];
+    self.likeCountLabel.text = likesCountString;
 }
 
 + (void)load {
@@ -105,18 +109,23 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabel.numberOfLines = 0;
         self.commentLabel.backgroundColor = commentLabelGray;
         
+        self.likeCountLabel = [[UILabel alloc] init];
+        self.likeCountLabel.numberOfLines = 0;
+        self.likeCountLabel.backgroundColor = usernameLabelGray;
+        self.likeCountLabel.textAlignment = NSTextAlignmentRight;
+        
         self.likeButton = [[LikeButton alloc] init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
          
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton]) {
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.likeCountLabel]) {
            [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
 
-        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton);
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton, _likeCountLabel);
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeCountLabel(==40)][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel]"
@@ -193,18 +202,18 @@ static NSParagraphStyle *paragraphStyle;
          
          // change first comment to orange
          
-         if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
-             NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
-             [oneCommentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
-         }
+//         if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
+//             NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
+//             [oneCommentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
+//         }
          
          // paragraph align right for every other comment.
 
-         if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
-             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-             paragraph.alignment = NSTextAlignmentRight;
-             [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];
-         }
+//         if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
+//             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+//             paragraph.alignment = NSTextAlignmentRight;
+//             [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];
+//         }
          [commentString appendAttributedString:oneCommentString];
      }
      
@@ -243,6 +252,7 @@ static NSParagraphStyle *paragraphStyle;
 #pragma mark - Liking
 
 - (void) likePressed:(UIButton *)sender {
+    self.likeAmount++;
     [self.delegate cellDidPressLikeButton:self];
 }
 
