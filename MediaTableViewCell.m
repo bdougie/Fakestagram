@@ -60,7 +60,7 @@ static NSParagraphStyle *paragraphStyle;
     self.commentLabel.attributedText = [self commentString];
     self.likeButton.likeButtonState = mediaItem.likeState;
 
-    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%d", _likeAmount];
+    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%tu", _likeAmount];
     self.likeCountLabel.text = likesCountString;
 }
 
