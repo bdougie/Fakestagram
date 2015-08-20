@@ -23,6 +23,7 @@
 @property (nonatomic, strong) UILabel *likeCountLabel;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *likeHeightContraints;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
@@ -60,7 +61,7 @@ static NSParagraphStyle *paragraphStyle;
     self.commentLabel.attributedText = [self commentString];
     self.likeButton.likeButtonState = mediaItem.likeState;
 
-    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%tu", _likeAmount];
+    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%tu", mediaItem.likeAmount];
     self.likeCountLabel.text = likesCountString;
 }
 
@@ -91,6 +92,7 @@ static NSParagraphStyle *paragraphStyle;
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+        self.backgroundColor = usernameLabelGray;
         
         self.twoTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapFired:)];
         self.twoTapGestureRecognizer.delegate = self;
@@ -112,12 +114,12 @@ static NSParagraphStyle *paragraphStyle;
         self.likeCountLabel = [[UILabel alloc] init];
         self.likeCountLabel.numberOfLines = 0;
         self.likeCountLabel.backgroundColor = usernameLabelGray;
-        self.likeCountLabel.textAlignment = NSTextAlignmentRight;
+        self.likeCountLabel.textAlignment = NSTextAlignmentCenter;
         
         self.likeButton = [[LikeButton alloc] init];
         [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
         self.likeButton.backgroundColor = usernameLabelGray;
-         
+        
         for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.likeCountLabel]) {
            [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
@@ -139,6 +141,13 @@ static NSParagraphStyle *paragraphStyle;
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
                                                                    constant: self.bounds.size.width];
+        self.likeHeightContraints = [NSLayoutConstraint constraintWithItem:_likeCountLabel
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeNotAnAttribute
+                                                                 multiplier:1
+                                                                   constant:40];
         self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
@@ -167,7 +176,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                           constant:100];
         self.commentLabelHeightConstraint.identifier = @"Comment label height constraint";
         
-        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.imageWidthConstraint]];
+        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.imageWidthConstraint, self.likeHeightContraints]];
     }
     return self;
 }
@@ -252,7 +261,6 @@ static NSParagraphStyle *paragraphStyle;
 #pragma mark - Liking
 
 - (void) likePressed:(UIButton *)sender {
-    self.likeAmount++;
     [self.delegate cellDidPressLikeButton:self];
 }
 

@@ -222,7 +222,7 @@
         [self didChangeValueForKey:@"mediaItems"];
     }
     
-    [self saveImages];
+    [self saveToDisk];
 }
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem {
@@ -236,7 +236,7 @@
                 NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
                 NSInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
                 [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
-                [self saveImages];
+                [self saveToDisk];
             } else {
                 mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
             }
@@ -264,7 +264,7 @@
 
 #pragma mark- NSKeyedArchiver
 
-- (void) saveImages {
+- (void) saveToDisk {
     
     if (self.mediaItems.count > 0) {
         // write to disk
@@ -299,17 +299,18 @@
     NSDictionary *parameters = @{@"access_token": self.accessToken};
     
     if (mediaItem.likeState == LikeStateNotLiked) {
-        
-        mediaItem.likeState = LikeStateLiking;
+        // add likes
+        mediaItem.likeAmount++;
+        mediaItem.likeState = LikeStateLiked;
         
         [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = LikeStateLiked;
+//            mediaItem.likeState = LikeStateLiked;
             
             if (completionHandler) {
                 completionHandler();
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = LikeStateNotLiked;
+//            mediaItem.likeState = LikeStateNotLiked;
             
             if (completionHandler) {
                 completionHandler();
@@ -317,23 +318,25 @@
         }];
         
     } else if (mediaItem.likeState == LikeStateLiked) {
-        
-        mediaItem.likeState = LikeStateUnliking;
+//      remove likes
+        mediaItem.likeAmount--;
+        mediaItem.likeState = LikeStateNotLiked;
         
         [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-            mediaItem.likeState = LikeStateNotLiked;
+//            mediaItem.likeState = LikeStateNotLiked;
             
             if (completionHandler) {
                 completionHandler();
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            mediaItem.likeState = LikeStateLiked;
+//            mediaItem.likeState = LikeStateLiked;
             
             if (completionHandler) {
                 completionHandler();
             }
         }];
     }
+    [self saveToDisk];
 }
 
 - (void) createOperationManager {
