@@ -11,6 +11,7 @@
 #import "Comment.h"
 #import "User.h"
 #import "UIColorExt.h"
+#import "LikeButton.h"
 
 @interface MediaTableViewCell () {
     Media* _mediaItem;
@@ -19,13 +20,17 @@
 @property (nonatomic, strong) UIImageView *mediaImageView;
 @property (nonatomic, strong) UILabel *usernameAndCaptionLabel;
 @property (nonatomic, strong) UILabel *commentLabel;
+@property (nonatomic, strong) UILabel *likeCountLabel;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *likeHeightContraints;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
 @property (nonatomic, strong) UITapGestureRecognizer *tapGestureRecognizer;
 @property (nonatomic, strong) UITapGestureRecognizer *twoTapGestureRecognizer;
 @property (nonatomic, strong) UILongPressGestureRecognizer *longPressGestureRecognizer;
+
+@property (nonatomic, strong) LikeButton *likeButton;
 
 @end
 
@@ -54,6 +59,10 @@ static NSParagraphStyle *paragraphStyle;
     self.mediaImageView.image = _mediaItem.image;
     self.usernameAndCaptionLabel.attributedText = [self usernameAndCaptionString];
     self.commentLabel.attributedText = [self commentString];
+    self.likeButton.likeButtonState = mediaItem.likeState;
+
+    NSMutableString *likesCountString = [NSMutableString stringWithFormat:@"%tu", mediaItem.likeAmount];
+    self.likeCountLabel.text = likesCountString;
 }
 
 + (void)load {
@@ -83,6 +92,7 @@ static NSParagraphStyle *paragraphStyle;
         self.tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
         self.tapGestureRecognizer.delegate = self;
         [self.mediaImageView addGestureRecognizer:self.tapGestureRecognizer];
+        self.backgroundColor = usernameLabelGray;
         
         self.twoTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(twoFingerTapFired:)];
         self.twoTapGestureRecognizer.delegate = self;
@@ -100,15 +110,24 @@ static NSParagraphStyle *paragraphStyle;
         self.commentLabel = [[UILabel alloc] init];
         self.commentLabel.numberOfLines = 0;
         self.commentLabel.backgroundColor = commentLabelGray;
-
-        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel]) {
+        
+        self.likeCountLabel = [[UILabel alloc] init];
+        self.likeCountLabel.numberOfLines = 0;
+        self.likeCountLabel.backgroundColor = usernameLabelGray;
+        self.likeCountLabel.textAlignment = NSTextAlignmentCenter;
+        
+        self.likeButton = [[LikeButton alloc] init];
+        [self.likeButton addTarget:self action:@selector(likePressed:) forControlEvents:UIControlEventTouchUpInside];
+        self.likeButton.backgroundColor = usernameLabelGray;
+        
+        for (UIView *view in @[self.mediaImageView, self.usernameAndCaptionLabel, self.commentLabel, self.likeButton, self.likeCountLabel]) {
            [self.contentView addSubview:view];
             view.translatesAutoresizingMaskIntoConstraints = NO;
         }
 
-        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel);
+        NSDictionary *viewDictionary = NSDictionaryOfVariableBindings(_mediaImageView, _usernameAndCaptionLabel, _commentLabel, _likeButton, _likeCountLabel);
         
-        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
+        [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_usernameAndCaptionLabel][_likeCountLabel(==40)][_likeButton(==38)]|" options:NSLayoutFormatAlignAllTop | NSLayoutFormatAlignAllBottom metrics:nil views:viewDictionary]];
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_commentLabel]|" options:kNilOptions metrics:nil views:viewDictionary]];
         
         [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_mediaImageView][_usernameAndCaptionLabel][_commentLabel]"
@@ -121,14 +140,21 @@ static NSParagraphStyle *paragraphStyle;
                                                                      toItem:nil
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
-                                                                   constant:425];
+                                                                   constant: self.bounds.size.width];
+        self.likeHeightContraints = [NSLayoutConstraint constraintWithItem:_likeCountLabel
+                                                                  attribute:NSLayoutAttributeHeight
+                                                                  relatedBy:NSLayoutRelationEqual
+                                                                     toItem:nil
+                                                                  attribute:NSLayoutAttributeNotAnAttribute
+                                                                 multiplier:1
+                                                                   constant:40];
         self.imageHeightConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
                                                                      toItem:nil
                                                                   attribute:NSLayoutAttributeNotAnAttribute
                                                                  multiplier:1
-                                                                   constant:425];
+                                                                   constant:self.bounds.size.width];
         self.imageHeightConstraint.identifier = @"Image height constraint";
         self.imageWidthConstraint.identifier = @"Image width constraint";
         
@@ -138,7 +164,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                                        toItem:nil
                                                                                     attribute:NSLayoutAttributeNotAnAttribute
                                                                                    multiplier:1
-                                                                                     constant:100];
+                                                                                     constant:self.bounds.size.width];
         self.usernameAndCaptionLabelHeightConstraint.identifier = @"Username and caption label height constraint";
         
         self.commentLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_commentLabel
@@ -150,7 +176,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                           constant:100];
         self.commentLabelHeightConstraint.identifier = @"Comment label height constraint";
         
-        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.imageWidthConstraint]];
+        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.imageWidthConstraint, self.likeHeightContraints]];
     }
     return self;
 }
@@ -185,18 +211,18 @@ static NSParagraphStyle *paragraphStyle;
          
          // change first comment to orange
          
-         if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
-             NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
-             [oneCommentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
-         }
+//         if ([self.mediaItem.comments indexOfObject:comment] == 0 && comment.text.length > 0) {
+//             NSRange selectedRange = NSMakeRange(0, oneCommentString.length);
+//             [oneCommentString setAttributes:@{NSForegroundColorAttributeName: commentLabelOrange} range:selectedRange];
+//         }
          
          // paragraph align right for every other comment.
 
-         if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
-             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
-             paragraph.alignment = NSTextAlignmentRight;
-             [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];
-         }
+//         if ([self.mediaItem.comments indexOfObject:comment] % 2 == 0) {
+//             NSMutableParagraphStyle *paragraph = [[NSMutableParagraphStyle alloc] init];
+//             paragraph.alignment = NSTextAlignmentRight;
+//             [oneCommentString addAttribute:NSParagraphStyleAttributeName value:paragraph range:NSMakeRange(0, oneCommentString.length)];
+//         }
          [commentString appendAttributedString:oneCommentString];
      }
      
@@ -230,6 +256,12 @@ static NSParagraphStyle *paragraphStyle;
     
     // Get the actual height required for the cell
     return CGRectGetMaxY(layoutCell.commentLabel.frame);
+}
+
+#pragma mark - Liking
+
+- (void) likePressed:(UIButton *)sender {
+    [self.delegate cellDidPressLikeButton:self];
 }
 
 #pragma mark - Image View

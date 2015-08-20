@@ -114,6 +114,7 @@
 #pragma mark - UISCrollViewDelegate
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    NSLog(@"scroll is faster");
     [self infiniteScrollIfNecessary];
 }
 
@@ -132,7 +133,8 @@
 
 - (void) tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     Media *mediaItem = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (mediaItem.downloadState == MediaDownloadStateNeedsImage) {
+    NSLog(@"%f", self.tableView.contentOffset.y);
+    if (mediaItem.downloadState == MediaDownloadStateNeedsImage && (self.tableView.isDecelerating || self.tableView.isDragging || self.tableView.contentOffset.y == -64.0)) {
         [[DataSource sharedInstance] downloadImageForMediaItem:mediaItem];
     }
 }
@@ -144,12 +146,8 @@
 }
 
 - (CGFloat) tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    Media *item = [DataSource sharedInstance].mediaItems[indexPath.row];
-    if (item.image) {
-        return 350;
-    } else {
-        return 150;
-    }
+    // +200 compensating for comments height
+    return self.view.bounds.size.width + 200;
 }
 
 # pragma mark - MediaTableViewCellDelegate
@@ -180,6 +178,18 @@
         UIActivityViewController *activityVC = [[UIActivityViewController alloc] initWithActivityItems:itemsToShare applicationActivities:nil];
         [self presentViewController:activityVC animated:YES completion:nil];
     }
+}
+
+- (void) cellDidPressLikeButton:(MediaTableViewCell *)cell {
+    Media *item = cell.mediaItem;
+    
+    [[DataSource sharedInstance] toggleLikeOnMediaItem:item withCompletionHandler:^{
+        if (cell.mediaItem == item) {
+            cell.mediaItem = item;
+        }
+    }];
+    
+    cell.mediaItem = item;
 }
 
 // Override to support conditional editing of the table view.

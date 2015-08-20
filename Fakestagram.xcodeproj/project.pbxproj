@@ -13,6 +13,18 @@
 		333E3D481B577B2D00F087F6 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 333E3D461B577B2D00F087F6 /* LaunchScreen.xib */; };
 		333E3D541B577B2D00F087F6 /* FakestagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D531B577B2D00F087F6 /* FakestagramTests.m */; };
 		333E3D881B57851200F087F6 /* ImagesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 333E3D871B57851200F087F6 /* ImagesTableViewController.m */; };
+		3343C7241B7B1F5D004E0D3C /* angle-mask@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C71B1B7B1F5D004E0D3C /* angle-mask@2x.png */; };
+		3343C7251B7B1F5D004E0D3C /* angle-mask@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C71C1B7B1F5D004E0D3C /* angle-mask@3x.png */; };
+		3343C7261B7B1F5D004E0D3C /* heart-empty.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C71D1B7B1F5D004E0D3C /* heart-empty.png */; };
+		3343C7271B7B1F5D004E0D3C /* heart-empty@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C71E1B7B1F5D004E0D3C /* heart-empty@2x.png */; };
+		3343C7281B7B1F5D004E0D3C /* heart-empty@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C71F1B7B1F5D004E0D3C /* heart-empty@3x.png */; };
+		3343C7291B7B1F5D004E0D3C /* heart-full.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C7201B7B1F5D004E0D3C /* heart-full.png */; };
+		3343C72A1B7B1F5D004E0D3C /* heart-full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C7211B7B1F5D004E0D3C /* heart-full@2x.png */; };
+		3343C72B1B7B1F5D004E0D3C /* heart-full@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3343C7221B7B1F5D004E0D3C /* heart-full@3x.png */; };
+		3343C72E1B7B1FFB004E0D3C /* CircleSpinnerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3343C72D1B7B1FFB004E0D3C /* CircleSpinnerView.m */; };
+		335DB2C31B7DB9FA00421CA5 /* angle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 335DB2C21B7DB9FA00421CA5 /* angle-mask.png */; };
+		335DB2C51B7DBA0A00421CA5 /* angle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 335DB2C41B7DBA0A00421CA5 /* angle-mask.png */; };
+		335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 335DB2C71B7DC42E00421CA5 /* LikeButton.m */; };
 		33BE8EC91B6E47A4000DCB9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */; };
 		33F6CD921B5FD76800EEC211 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD881B5FD76800EEC211 /* 1.jpg */; };
 		33F6CD931B5FD76800EEC211 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD891B5FD76800EEC211 /* 2.jpg */; };
@@ -58,6 +70,20 @@
 		333E3D531B577B2D00F087F6 /* FakestagramTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FakestagramTests.m; sourceTree = "<group>"; };
 		333E3D861B57851200F087F6 /* ImagesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImagesTableViewController.h; path = ../ImagesTableViewController.h; sourceTree = "<group>"; };
 		333E3D871B57851200F087F6 /* ImagesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ImagesTableViewController.m; path = ../ImagesTableViewController.m; sourceTree = "<group>"; };
+		3343C71B1B7B1F5D004E0D3C /* angle-mask@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angle-mask@2x.png"; sourceTree = "<group>"; };
+		3343C71C1B7B1F5D004E0D3C /* angle-mask@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angle-mask@3x.png"; sourceTree = "<group>"; };
+		3343C71D1B7B1F5D004E0D3C /* heart-empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-empty.png"; sourceTree = "<group>"; };
+		3343C71E1B7B1F5D004E0D3C /* heart-empty@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-empty@2x.png"; sourceTree = "<group>"; };
+		3343C71F1B7B1F5D004E0D3C /* heart-empty@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-empty@3x.png"; sourceTree = "<group>"; };
+		3343C7201B7B1F5D004E0D3C /* heart-full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-full.png"; sourceTree = "<group>"; };
+		3343C7211B7B1F5D004E0D3C /* heart-full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-full@2x.png"; sourceTree = "<group>"; };
+		3343C7221B7B1F5D004E0D3C /* heart-full@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "heart-full@3x.png"; sourceTree = "<group>"; };
+		3343C72C1B7B1FFB004E0D3C /* CircleSpinnerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircleSpinnerView.h; sourceTree = "<group>"; };
+		3343C72D1B7B1FFB004E0D3C /* CircleSpinnerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircleSpinnerView.m; sourceTree = "<group>"; };
+		335DB2C21B7DB9FA00421CA5 /* angle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angle-mask.png"; sourceTree = "<group>"; };
+		335DB2C41B7DBA0A00421CA5 /* angle-mask.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "angle-mask.png"; sourceTree = "<group>"; };
+		335DB2C61B7DC42E00421CA5 /* LikeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikeButton.h; sourceTree = "<group>"; };
+		335DB2C71B7DC42E00421CA5 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		33F6CD881B5FD76800EEC211 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -144,6 +170,10 @@
 				33F6CDA31B63BF8400EEC211 /* Comment.m */,
 				33F6CDA51B63C04600EEC211 /* DataSource.h */,
 				33F6CDA61B63C04600EEC211 /* DataSource.m */,
+				3343C72C1B7B1FFB004E0D3C /* CircleSpinnerView.h */,
+				3343C72D1B7B1FFB004E0D3C /* CircleSpinnerView.m */,
+				335DB2C61B7DC42E00421CA5 /* LikeButton.h */,
+				335DB2C71B7DC42E00421CA5 /* LikeButton.m */,
 				33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */,
 				33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */,
 				33F6CD871B5FB07100EEC211 /* Images */,
@@ -187,6 +217,16 @@
 		33F6CD871B5FB07100EEC211 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				335DB2C21B7DB9FA00421CA5 /* angle-mask.png */,
+				335DB2C41B7DBA0A00421CA5 /* angle-mask.png */,
+				3343C71B1B7B1F5D004E0D3C /* angle-mask@2x.png */,
+				3343C71C1B7B1F5D004E0D3C /* angle-mask@3x.png */,
+				3343C71D1B7B1F5D004E0D3C /* heart-empty.png */,
+				3343C71E1B7B1F5D004E0D3C /* heart-empty@2x.png */,
+				3343C71F1B7B1F5D004E0D3C /* heart-empty@3x.png */,
+				3343C7201B7B1F5D004E0D3C /* heart-full.png */,
+				3343C7211B7B1F5D004E0D3C /* heart-full@2x.png */,
+				3343C7221B7B1F5D004E0D3C /* heart-full@3x.png */,
 				33F6CD881B5FD76800EEC211 /* 1.jpg */,
 				33F6CD891B5FD76800EEC211 /* 2.jpg */,
 				33F6CD8A1B5FD76800EEC211 /* 3.jpg */,
@@ -301,15 +341,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3343C7291B7B1F5D004E0D3C /* heart-full.png in Resources */,
 				33F6CD9A1B5FD76800EEC211 /* 9.jpg in Resources */,
 				33F6CD991B5FD76800EEC211 /* 8.jpg in Resources */,
+				335DB2C51B7DBA0A00421CA5 /* angle-mask.png in Resources */,
+				335DB2C31B7DB9FA00421CA5 /* angle-mask.png in Resources */,
+				3343C7261B7B1F5D004E0D3C /* heart-empty.png in Resources */,
+				3343C7271B7B1F5D004E0D3C /* heart-empty@2x.png in Resources */,
 				33F6CD951B5FD76800EEC211 /* 4.jpg in Resources */,
 				33F6CD941B5FD76800EEC211 /* 3.jpg in Resources */,
+				3343C72B1B7B1F5D004E0D3C /* heart-full@3x.png in Resources */,
 				33F6CD971B5FD76800EEC211 /* 6.jpg in Resources */,
+				3343C7251B7B1F5D004E0D3C /* angle-mask@3x.png in Resources */,
 				33F6CD921B5FD76800EEC211 /* 1.jpg in Resources */,
+				3343C7241B7B1F5D004E0D3C /* angle-mask@2x.png in Resources */,
 				333E3D481B577B2D00F087F6 /* LaunchScreen.xib in Resources */,
 				33F6CD961B5FD76800EEC211 /* 5.jpg in Resources */,
+				3343C72A1B7B1F5D004E0D3C /* heart-full@2x.png in Resources */,
 				33F6CD981B5FD76800EEC211 /* 7.jpg in Resources */,
+				3343C7281B7B1F5D004E0D3C /* heart-empty@3x.png in Resources */,
 				33F6CD931B5FD76800EEC211 /* 2.jpg in Resources */,
 				33F6CD9B1B5FD76800EEC211 /* 10.jpg in Resources */,
 				333E3D451B577B2D00F087F6 /* Images.xcassets in Resources */,
@@ -373,6 +423,8 @@
 				33FF4CDF1B7609EA00F057F2 /* MediaFullScreenViewController.m in Sources */,
 				33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */,
 				333E3D3A1B577B2D00F087F6 /* main.m in Sources */,
+				335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */,
+				3343C72E1B7B1FFB004E0D3C /* CircleSpinnerView.m in Sources */,
 				333E3D881B57851200F087F6 /* ImagesTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -22,7 +22,7 @@
 @property (nonatomic, assign) BOOL isLoadingOlderItems;
 @property (nonatomic, strong) NSString *accessToken;
 @property (nonatomic, assign) BOOL thereAreNomoreOlderMessages;
-@property (nonatomic, strong) AFHTTPRequestOperationManager *instangramOperationManager;
+@property (nonatomic, strong) AFHTTPRequestOperationManager *instagramOperationManager;
 
 @end
 
@@ -167,7 +167,7 @@
         
         [mutableParameters addEntriesFromDictionary:parameters];
         
-        [self.instangramOperationManager GET:@"users/self/feed"
+        [self.instagramOperationManager GET:@"users/self/feed"
           parameters:mutableParameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
               if ([responseObject isKindOfClass:[NSDictionary class]]) {
                   [self parseDataFromFeedDictionary:responseObject fromRequestWithParameters:parameters];
@@ -221,21 +221,21 @@
         [self didChangeValueForKey:@"mediaItems"];
     }
     
-    [self saveImages];
+    [self saveToDisk];
 }
 
 - (void) downloadImageForMediaItem:(Media *)mediaItem {
     if (mediaItem.mediaURL && !mediaItem.image) {
         mediaItem.downloadState = MediaDownloadStateDownloadInProgress;
         
-        [self.instangramOperationManager GET:mediaItem.mediaURL.absoluteString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [self.instagramOperationManager GET:mediaItem.mediaURL.absoluteString parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
             if ([responseObject isKindOfClass:[UIImage class]]) {
                 mediaItem.image = responseObject;
                 mediaItem.downloadState = MediaDownloadStateHasImage;
                 NSMutableArray *mutableArrayWithKVO = [self mutableArrayValueForKey:@"mediaItems"];
                 NSInteger index = [mutableArrayWithKVO indexOfObject:mediaItem];
                 [mutableArrayWithKVO replaceObjectAtIndex:index withObject:mediaItem];
-                [self saveImages];
+                [self saveToDisk];
             } else {
                 mediaItem.downloadState = MediaDownloadStateNonRecoverableError;
             }
@@ -263,7 +263,7 @@
 
 #pragma mark- NSKeyedArchiver
 
-- (void) saveImages {
+- (void) saveToDisk {
     
     if (self.mediaItems.count > 0) {
         // write to disk
@@ -291,9 +291,56 @@
     return dataPath;
 }
 
+#pragma mark - Liking Media Items
+
+- (void) toggleLikeOnMediaItem:(Media *)mediaItem withCompletionHandler:(void (^)(void))completionHandler {
+    NSString *urlString = [NSString stringWithFormat:@"media/%@/likes", mediaItem.idNumber];
+    NSDictionary *parameters = @{@"access_token": self.accessToken};
+    
+    if (mediaItem.likeState == LikeStateNotLiked) {
+        // add likes
+        mediaItem.likeAmount++;
+        mediaItem.likeState = LikeStateLiked;
+        
+        [self.instagramOperationManager POST:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = LikeStateLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+        
+    } else if (mediaItem.likeState == LikeStateLiked) {
+//      remove likes
+        mediaItem.likeAmount--;
+        mediaItem.likeState = LikeStateNotLiked;
+        
+        [self.instagramOperationManager DELETE:urlString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//            mediaItem.likeState = LikeStateNotLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//            mediaItem.likeState = LikeStateLiked;
+            
+            if (completionHandler) {
+                completionHandler();
+            }
+        }];
+    }
+    [self saveToDisk];
+}
+
 - (void) createOperationManager {
     NSURL *baseURL = [NSURL URLWithString:@"https://api.instagram.com/v1/"];
-    self.instangramOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
+    self.instagramOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     
     AFJSONResponseSerializer *jsonSerializer = [AFJSONResponseSerializer serializer];
     
@@ -301,6 +348,6 @@
     imageSerializer.imageScale = 1.0;
     
     AFCompoundResponseSerializer *serializer = [AFCompoundResponseSerializer compoundSerializerWithResponseSerializers:@[jsonSerializer, imageSerializer]];
-    self.instangramOperationManager.responseSerializer = serializer;
+    self.instagramOperationManager.responseSerializer = serializer;
 }
 @end
