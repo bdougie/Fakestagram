@@ -51,7 +51,7 @@
     [shareButton setTitleColor:[UIColor yellowColor] forState:UIControlStateNormal];
     [shareButton setBackgroundColor:([UIColor redColor])];
     [shareButton sizeToFit];
-    shareButton.frame = CGRectMake(280.0, 10.0, 74.0, 46.0);
+    shareButton.frame = CGRectMake(240.0, 10.0, 74.0, 46.0);
     
     self.tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapFired:)];
     
