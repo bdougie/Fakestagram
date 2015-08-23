@@ -26,6 +26,21 @@
 		335DB2C51B7DBA0A00421CA5 /* angle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 335DB2C41B7DBA0A00421CA5 /* angle-mask.png */; };
 		335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 335DB2C71B7DC42E00421CA5 /* LikeButton.m */; };
 		338479AD1B8361CC0030D7FB /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 338479AC1B8361CC0030D7FB /* ComposeCommentView.m */; };
+		33A9EB8C1B893F04000CE173 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB801B893F04000CE173 /* camera.png */; };
+		33A9EB8D1B893F04000CE173 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB811B893F04000CE173 /* camera@2x.png */; };
+		33A9EB8E1B893F04000CE173 /* camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB821B893F04000CE173 /* camera@3x.png */; };
+		33A9EB8F1B893F04000CE173 /* road.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB831B893F04000CE173 /* road.png */; };
+		33A9EB901B893F04000CE173 /* road@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB841B893F04000CE173 /* road@2x.png */; };
+		33A9EB911B893F04000CE173 /* road@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB851B893F04000CE173 /* road@3x.png */; };
+		33A9EB921B893F04000CE173 /* rotate.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB861B893F04000CE173 /* rotate.png */; };
+		33A9EB931B893F04000CE173 /* rotate@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB871B893F04000CE173 /* rotate@2x.png */; };
+		33A9EB941B893F04000CE173 /* rotate@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB881B893F04000CE173 /* rotate@3x.png */; };
+		33A9EB951B893F04000CE173 /* x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB891B893F04000CE173 /* x.png */; };
+		33A9EB961B893F04000CE173 /* x@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB8A1B893F04000CE173 /* x@2x.png */; };
+		33A9EB971B893F04000CE173 /* x@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB8B1B893F04000CE173 /* x@3x.png */; };
+		33A9EB9A1B893F2D000CE173 /* CameraToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EB991B893F2D000CE173 /* CameraToolbar.m */; };
+		33A9EB9D1B89B776000CE173 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EB9C1B89B776000CE173 /* CameraViewController.m */; };
+		33A9EBA31B89CFB5000CE173 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */; };
 		33BE8EC91B6E47A4000DCB9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */; };
 		33F6CD921B5FD76800EEC211 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD881B5FD76800EEC211 /* 1.jpg */; };
 		33F6CD931B5FD76800EEC211 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD891B5FD76800EEC211 /* 2.jpg */; };
@@ -87,6 +102,24 @@
 		335DB2C71B7DC42E00421CA5 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		338479AB1B8361CC0030D7FB /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
 		338479AC1B8361CC0030D7FB /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
+		33A9EB801B893F04000CE173 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
+		33A9EB811B893F04000CE173 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
+		33A9EB821B893F04000CE173 /* camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@3x.png"; sourceTree = "<group>"; };
+		33A9EB831B893F04000CE173 /* road.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = road.png; sourceTree = "<group>"; };
+		33A9EB841B893F04000CE173 /* road@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "road@2x.png"; sourceTree = "<group>"; };
+		33A9EB851B893F04000CE173 /* road@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "road@3x.png"; sourceTree = "<group>"; };
+		33A9EB861B893F04000CE173 /* rotate.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rotate.png; sourceTree = "<group>"; };
+		33A9EB871B893F04000CE173 /* rotate@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotate@2x.png"; sourceTree = "<group>"; };
+		33A9EB881B893F04000CE173 /* rotate@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rotate@3x.png"; sourceTree = "<group>"; };
+		33A9EB891B893F04000CE173 /* x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = x.png; sourceTree = "<group>"; };
+		33A9EB8A1B893F04000CE173 /* x@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x@2x.png"; sourceTree = "<group>"; };
+		33A9EB8B1B893F04000CE173 /* x@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "x@3x.png"; sourceTree = "<group>"; };
+		33A9EB981B893F2D000CE173 /* CameraToolbar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraToolbar.h; sourceTree = "<group>"; };
+		33A9EB991B893F2D000CE173 /* CameraToolbar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraToolbar.m; sourceTree = "<group>"; };
+		33A9EB9B1B89B776000CE173 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		33A9EB9C1B89B776000CE173 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
+		33A9EBA11B89CFB5000CE173 /* UIImage+ImageUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ImageUtilities.h"; sourceTree = "<group>"; };
+		33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		33F6CD881B5FD76800EEC211 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
@@ -159,6 +192,12 @@
 		333E3D361B577B2D00F087F6 /* Fakestagram */ = {
 			isa = PBXGroup;
 			children = (
+				33A9EBA11B89CFB5000CE173 /* UIImage+ImageUtilities.h */,
+				33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */,
+				33A9EB981B893F2D000CE173 /* CameraToolbar.h */,
+				33A9EB991B893F2D000CE173 /* CameraToolbar.m */,
+				33A9EB9B1B89B776000CE173 /* CameraViewController.h */,
+				33A9EB9C1B89B776000CE173 /* CameraViewController.m */,
 				33F6CDB11B64E3BF00EEC211 /* UIColorExt.h */,
 				33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */,
 				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
@@ -222,6 +261,18 @@
 		33F6CD871B5FB07100EEC211 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				33A9EB801B893F04000CE173 /* camera.png */,
+				33A9EB811B893F04000CE173 /* camera@2x.png */,
+				33A9EB821B893F04000CE173 /* camera@3x.png */,
+				33A9EB831B893F04000CE173 /* road.png */,
+				33A9EB841B893F04000CE173 /* road@2x.png */,
+				33A9EB851B893F04000CE173 /* road@3x.png */,
+				33A9EB861B893F04000CE173 /* rotate.png */,
+				33A9EB871B893F04000CE173 /* rotate@2x.png */,
+				33A9EB881B893F04000CE173 /* rotate@3x.png */,
+				33A9EB891B893F04000CE173 /* x.png */,
+				33A9EB8A1B893F04000CE173 /* x@2x.png */,
+				33A9EB8B1B893F04000CE173 /* x@3x.png */,
 				335DB2C21B7DB9FA00421CA5 /* angle-mask.png */,
 				335DB2C41B7DBA0A00421CA5 /* angle-mask.png */,
 				3343C71B1B7B1F5D004E0D3C /* angle-mask@2x.png */,
@@ -347,23 +398,35 @@
 			buildActionMask = 2147483647;
 			files = (
 				3343C7291B7B1F5D004E0D3C /* heart-full.png in Resources */,
+				33A9EB921B893F04000CE173 /* rotate.png in Resources */,
+				33A9EB961B893F04000CE173 /* x@2x.png in Resources */,
+				33A9EB901B893F04000CE173 /* road@2x.png in Resources */,
+				33A9EB8E1B893F04000CE173 /* camera@3x.png in Resources */,
 				33F6CD9A1B5FD76800EEC211 /* 9.jpg in Resources */,
 				33F6CD991B5FD76800EEC211 /* 8.jpg in Resources */,
 				335DB2C51B7DBA0A00421CA5 /* angle-mask.png in Resources */,
+				33A9EB931B893F04000CE173 /* rotate@2x.png in Resources */,
+				33A9EB8F1B893F04000CE173 /* road.png in Resources */,
+				33A9EB8C1B893F04000CE173 /* camera.png in Resources */,
 				335DB2C31B7DB9FA00421CA5 /* angle-mask.png in Resources */,
 				3343C7261B7B1F5D004E0D3C /* heart-empty.png in Resources */,
 				3343C7271B7B1F5D004E0D3C /* heart-empty@2x.png in Resources */,
 				33F6CD951B5FD76800EEC211 /* 4.jpg in Resources */,
 				33F6CD941B5FD76800EEC211 /* 3.jpg in Resources */,
 				3343C72B1B7B1F5D004E0D3C /* heart-full@3x.png in Resources */,
+				33A9EB951B893F04000CE173 /* x.png in Resources */,
+				33A9EB941B893F04000CE173 /* rotate@3x.png in Resources */,
+				33A9EB8D1B893F04000CE173 /* camera@2x.png in Resources */,
 				33F6CD971B5FD76800EEC211 /* 6.jpg in Resources */,
 				3343C7251B7B1F5D004E0D3C /* angle-mask@3x.png in Resources */,
+				33A9EB971B893F04000CE173 /* x@3x.png in Resources */,
 				33F6CD921B5FD76800EEC211 /* 1.jpg in Resources */,
 				3343C7241B7B1F5D004E0D3C /* angle-mask@2x.png in Resources */,
 				333E3D481B577B2D00F087F6 /* LaunchScreen.xib in Resources */,
 				33F6CD961B5FD76800EEC211 /* 5.jpg in Resources */,
 				3343C72A1B7B1F5D004E0D3C /* heart-full@2x.png in Resources */,
 				33F6CD981B5FD76800EEC211 /* 7.jpg in Resources */,
+				33A9EB911B893F04000CE173 /* road@3x.png in Resources */,
 				3343C7281B7B1F5D004E0D3C /* heart-empty@3x.png in Resources */,
 				33F6CD931B5FD76800EEC211 /* 2.jpg in Resources */,
 				33F6CD9B1B5FD76800EEC211 /* 10.jpg in Resources */,
@@ -427,8 +490,11 @@
 				333E3D3D1B577B2D00F087F6 /* AppDelegate.m in Sources */,
 				33FF4CDF1B7609EA00F057F2 /* MediaFullScreenViewController.m in Sources */,
 				33F6CDA71B63C04600EEC211 /* DataSource.m in Sources */,
+				33A9EB9D1B89B776000CE173 /* CameraViewController.m in Sources */,
+				33A9EB9A1B893F2D000CE173 /* CameraToolbar.m in Sources */,
 				333E3D3A1B577B2D00F087F6 /* main.m in Sources */,
 				335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */,
+				33A9EBA31B89CFB5000CE173 /* UIImage+ImageUtilities.m in Sources */,
 				338479AD1B8361CC0030D7FB /* ComposeCommentView.m in Sources */,
 				3343C72E1B7B1FFB004E0D3C /* CircleSpinnerView.m in Sources */,
 				333E3D881B57851200F087F6 /* ImagesTableViewController.m in Sources */,
