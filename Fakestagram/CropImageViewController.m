@@ -63,7 +63,7 @@
     visibleRect.size.width = self.scrollView.bounds.size.width * scale;
     visibleRect.size.height = self.scrollView.bounds.size.height * scale;
     
-    UIImage *scrollViewCrop = [scrollViewCrop imageWithFixedOrientation];
+    UIImage *scrollViewCrop = [self.media.image imageWithFixedOrientation];
     scrollViewCrop = [scrollViewCrop imageCroppedToRect:visibleRect];
     
     [self.delegate cropControllerFinishedWithImage:scrollViewCrop];
