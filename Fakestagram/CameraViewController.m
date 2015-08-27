@@ -67,12 +67,7 @@
                 NSError *error = nil;
                 AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
                 if (!input) {
-                    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedRecoverySuggestion preferredStyle:UIAlertControllerStyleAlert];
-                    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                        [self.delegate cameraViewController:self didCompleteWithImage:nil];
-                    }]];
-                    
-                    [self presentViewController:alertVC animated:YES completion:nil];
+                    [self alertVC:error];
                 } else {
                     [self.session addInput:input];
                     
@@ -233,16 +228,20 @@
             });
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedRecoverySuggestion preferredStyle:UIAlertControllerStyleAlert];
-                [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
-                    [self.delegate cameraViewController:self didCompleteWithImage:nil];
-                }]];
-                
-                [self presentViewController:alertVC animated:YES completion:nil];
+                [self alertVC:error];
             });
             
         }
     }];
+}
+
+- (void) alertVC:(NSError*) error {
+    UIAlertController *alertVC = [UIAlertController alertControllerWithTitle:error.localizedDescription message:error.localizedRecoverySuggestion preferredStyle:UIAlertControllerStyleAlert];
+    [alertVC addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK button") style:UIAlertActionStyleCancel handler:^(UIAlertAction *action) {
+        [self.delegate cameraViewController:self didCompleteWithImage:nil];
+    }]];
+    
+    [self presentViewController:alertVC animated:YES completion:nil];
 }
 
 @end
