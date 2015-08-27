@@ -97,7 +97,7 @@
          delay:0.0
          usingSpringWithDamping:0.2
          initialSpringVelocity:0.4
-         options:UIViewAnimationCurveEaseOut
+         options:UIViewAnimationOptionCurveEaseOut
          animations:^{
             [self layoutSubviews];
          }
@@ -145,7 +145,7 @@
     return YES;
 }
 
-- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+- (BOOL)textViewShouldEndEditing:(UITextView *)textView {
     BOOL hasComment = (textView.text.length > 0);
     [self setIsWritingComment:hasComment animated:YES];
     
