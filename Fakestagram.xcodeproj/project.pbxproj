@@ -201,43 +201,11 @@
 		333E3D361B577B2D00F087F6 /* Fakestagram */ = {
 			isa = PBXGroup;
 			children = (
-				333DD3E61B89F0F8003A89D8 /* ImageLibraryViewController.h */,
-				333DD3E71B89F0F8003A89D8 /* ImageLibraryViewController.m */,
-				33A9EBA11B89CFB5000CE173 /* UIImage+ImageUtilities.h */,
-				33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */,
-				33A9EB981B893F2D000CE173 /* CameraToolbar.h */,
-				33A9EB991B893F2D000CE173 /* CameraToolbar.m */,
-				33A9EB9B1B89B776000CE173 /* CameraViewController.h */,
-				33A9EB9C1B89B776000CE173 /* CameraViewController.m */,
-				33F6CDB11B64E3BF00EEC211 /* UIColorExt.h */,
-				33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */,
-				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
-				33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */,
-				338479AB1B8361CC0030D7FB /* ComposeCommentView.h */,
-				338479AC1B8361CC0030D7FB /* ComposeCommentView.m */,
-				33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */,
-				33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */,
-				333DD3E31B89EB01003A89D8 /* CropImageViewController.h */,
-				333DD3E41B89EB01003A89D8 /* CropImageViewController.m */,
-				333DD3E01B89E521003A89D8 /* CropBox.h */,
-				333DD3E11B89E521003A89D8 /* CropBox.m */,
-				33F6CD9C1B63BB0F00EEC211 /* User.h */,
-				33F6CD9D1B63BB0F00EEC211 /* User.m */,
-				33F6CD9F1B63BC0F00EEC211 /* Media.h */,
-				33F6CDA01B63BC0F00EEC211 /* Media.m */,
-				33F6CDA21B63BF8400EEC211 /* Comment.h */,
-				33F6CDA31B63BF8400EEC211 /* Comment.m */,
-				33F6CDA51B63C04600EEC211 /* DataSource.h */,
-				33F6CDA61B63C04600EEC211 /* DataSource.m */,
-				3343C72C1B7B1FFB004E0D3C /* CircleSpinnerView.h */,
-				3343C72D1B7B1FFB004E0D3C /* CircleSpinnerView.m */,
-				335DB2C61B7DC42E00421CA5 /* LikeButton.h */,
-				335DB2C71B7DC42E00421CA5 /* LikeButton.m */,
-				33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */,
-				33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */,
+				33870F981B90942900D5C5B3 /* Controllers */,
+				33870F961B9093D400D5C5B3 /* Helpers */,
+				33870F951B9093C600D5C5B3 /* Models */,
+				33870F971B9093F600D5C5B3 /* Views */,
 				33F6CD871B5FB07100EEC211 /* Images */,
-				333E3D861B57851200F087F6 /* ImagesTableViewController.h */,
-				333E3D871B57851200F087F6 /* ImagesTableViewController.m */,
 				333E3D3B1B577B2D00F087F6 /* AppDelegate.h */,
 				333E3D3C1B577B2D00F087F6 /* AppDelegate.m */,
 				333E3D441B577B2D00F087F6 /* Images.xcassets */,
@@ -271,6 +239,70 @@
 				333E3D521B577B2D00F087F6 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		33870F951B9093C600D5C5B3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				33A9EB981B893F2D000CE173 /* CameraToolbar.h */,
+				33A9EB991B893F2D000CE173 /* CameraToolbar.m */,
+				333DD3E01B89E521003A89D8 /* CropBox.h */,
+				333DD3E11B89E521003A89D8 /* CropBox.m */,
+				33F6CD9C1B63BB0F00EEC211 /* User.h */,
+				33F6CD9D1B63BB0F00EEC211 /* User.m */,
+				33F6CD9F1B63BC0F00EEC211 /* Media.h */,
+				33F6CDA01B63BC0F00EEC211 /* Media.m */,
+				33F6CDA21B63BF8400EEC211 /* Comment.h */,
+				33F6CDA31B63BF8400EEC211 /* Comment.m */,
+				33F6CDA51B63C04600EEC211 /* DataSource.h */,
+				33F6CDA61B63C04600EEC211 /* DataSource.m */,
+				335DB2C61B7DC42E00421CA5 /* LikeButton.h */,
+				335DB2C71B7DC42E00421CA5 /* LikeButton.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		33870F961B9093D400D5C5B3 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				33A9EBA11B89CFB5000CE173 /* UIImage+ImageUtilities.h */,
+				33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */,
+				33F6CDB11B64E3BF00EEC211 /* UIColorExt.h */,
+				33F6CDB21B64E3BF00EEC211 /* UIColorExt.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		33870F971B9093F600D5C5B3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
+				33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */,
+				338479AB1B8361CC0030D7FB /* ComposeCommentView.h */,
+				338479AC1B8361CC0030D7FB /* ComposeCommentView.m */,
+				3343C72C1B7B1FFB004E0D3C /* CircleSpinnerView.h */,
+				3343C72D1B7B1FFB004E0D3C /* CircleSpinnerView.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		33870F981B90942900D5C5B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				333DD3E61B89F0F8003A89D8 /* ImageLibraryViewController.h */,
+				333DD3E71B89F0F8003A89D8 /* ImageLibraryViewController.m */,
+				33A9EB9B1B89B776000CE173 /* CameraViewController.h */,
+				33A9EB9C1B89B776000CE173 /* CameraViewController.m */,
+				33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */,
+				33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */,
+				333DD3E31B89EB01003A89D8 /* CropImageViewController.h */,
+				333DD3E41B89EB01003A89D8 /* CropImageViewController.m */,
+				33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */,
+				33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */,
+				333E3D861B57851200F087F6 /* ImagesTableViewController.h */,
+				333E3D871B57851200F087F6 /* ImagesTableViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		33F6CD871B5FB07100EEC211 /* Images */ = {
