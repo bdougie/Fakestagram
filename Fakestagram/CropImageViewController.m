@@ -15,6 +15,8 @@
 
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, assign) BOOL hasLoadedOnce;
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
 
 @end
 
@@ -46,6 +48,7 @@
     self.cropBox.frame = cropRect;
     self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
     self.scrollView.frame = self.cropBox.frame;
+    self.scrollView.clipsToBounds = NO;
     
     [self recalculateZoomScale];
     
@@ -73,6 +76,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    self.topView = [UIToolbar new];
+    self.bottomView = [UIToolbar new];
     
     self.view.clipsToBounds = YES;
     
