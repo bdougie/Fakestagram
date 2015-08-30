@@ -29,6 +29,7 @@
 		335DB2C51B7DBA0A00421CA5 /* angle-mask.png in Resources */ = {isa = PBXBuildFile; fileRef = 335DB2C41B7DBA0A00421CA5 /* angle-mask.png */; };
 		335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 335DB2C71B7DC42E00421CA5 /* LikeButton.m */; };
 		338479AD1B8361CC0030D7FB /* ComposeCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 338479AC1B8361CC0030D7FB /* ComposeCommentView.m */; };
+		33870F9E1B90950C00D5C5B3 /* PostToInstagramViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33870F9D1B90950C00D5C5B3 /* PostToInstagramViewController.m */; };
 		33A9EB8C1B893F04000CE173 /* camera.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB801B893F04000CE173 /* camera.png */; };
 		33A9EB8D1B893F04000CE173 /* camera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB811B893F04000CE173 /* camera@2x.png */; };
 		33A9EB8E1B893F04000CE173 /* camera@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 33A9EB821B893F04000CE173 /* camera@3x.png */; };
@@ -111,6 +112,8 @@
 		335DB2C71B7DC42E00421CA5 /* LikeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikeButton.m; sourceTree = "<group>"; };
 		338479AB1B8361CC0030D7FB /* ComposeCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ComposeCommentView.h; sourceTree = "<group>"; };
 		338479AC1B8361CC0030D7FB /* ComposeCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposeCommentView.m; sourceTree = "<group>"; };
+		33870F9C1B90950C00D5C5B3 /* PostToInstagramViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PostToInstagramViewController.h; sourceTree = "<group>"; };
+		33870F9D1B90950C00D5C5B3 /* PostToInstagramViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PostToInstagramViewController.m; sourceTree = "<group>"; };
 		33A9EB801B893F04000CE173 /* camera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = camera.png; sourceTree = "<group>"; };
 		33A9EB811B893F04000CE173 /* camera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@2x.png"; sourceTree = "<group>"; };
 		33A9EB821B893F04000CE173 /* camera@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "camera@3x.png"; sourceTree = "<group>"; };
@@ -211,6 +214,8 @@
 				333E3D441B577B2D00F087F6 /* Images.xcassets */,
 				333E3D461B577B2D00F087F6 /* LaunchScreen.xib */,
 				333E3D371B577B2D00F087F6 /* Supporting Files */,
+				33870F9C1B90950C00D5C5B3 /* PostToInstagramViewController.h */,
+				33870F9D1B90950C00D5C5B3 /* PostToInstagramViewController.m */,
 			);
 			path = Fakestagram;
 			sourceTree = "<group>";
@@ -289,16 +294,16 @@
 		33870F981B90942900D5C5B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				333DD3E61B89F0F8003A89D8 /* ImageLibraryViewController.h */,
-				333DD3E71B89F0F8003A89D8 /* ImageLibraryViewController.m */,
 				33A9EB9B1B89B776000CE173 /* CameraViewController.h */,
 				33A9EB9C1B89B776000CE173 /* CameraViewController.m */,
-				33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */,
-				33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */,
 				333DD3E31B89EB01003A89D8 /* CropImageViewController.h */,
 				333DD3E41B89EB01003A89D8 /* CropImageViewController.m */,
 				33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */,
 				33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */,
+				33FF4CDD1B7609EA00F057F2 /* MediaFullScreenViewController.h */,
+				33FF4CDE1B7609EA00F057F2 /* MediaFullScreenViewController.m */,
+				333DD3E61B89F0F8003A89D8 /* ImageLibraryViewController.h */,
+				333DD3E71B89F0F8003A89D8 /* ImageLibraryViewController.m */,
 				333E3D861B57851200F087F6 /* ImagesTableViewController.h */,
 				333E3D871B57851200F087F6 /* ImagesTableViewController.m */,
 			);
@@ -413,6 +418,7 @@
 				TargetAttributes = {
 					333E3D331B577B2D00F087F6 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = VG3PJ2R3LP;
 					};
 					333E3D4C1B577B2D00F087F6 = {
 						CreatedOnToolsVersion = 6.4;
@@ -542,6 +548,7 @@
 				33A9EB9D1B89B776000CE173 /* CameraViewController.m in Sources */,
 				33A9EB9A1B893F2D000CE173 /* CameraToolbar.m in Sources */,
 				333E3D3A1B577B2D00F087F6 /* main.m in Sources */,
+				33870F9E1B90950C00D5C5B3 /* PostToInstagramViewController.m in Sources */,
 				333DD3E81B89F0F8003A89D8 /* ImageLibraryViewController.m in Sources */,
 				335DB2C81B7DC42E00421CA5 /* LikeButton.m in Sources */,
 				33A9EBA31B89CFB5000CE173 /* UIImage+ImageUtilities.m in Sources */,
@@ -668,9 +675,12 @@
 			baseConfigurationReference = 18FD6BBBD659CE3C4B877825 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -679,9 +689,12 @@
 			baseConfigurationReference = B425F50CF971F462A1C437DD /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Fakestagram/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
