@@ -54,6 +54,7 @@
         self.sendButton = [UIButton buttonWithType:UIButtonTypeSystem];
         self.sendButton.backgroundColor = [UIColor colorWithRed:0.345 green:0.318 blue:0.424 alpha:1]; /*#58516c*/
         self.sendButton.layer.cornerRadius = 5;
+        [self.sendButton setAttributedTitle:[self sendAttributedString] forState:UIControlStateNormal];
         [self.sendButton addTarget:self action:@selector(sendButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
         
         self.sendBarButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Send", @"Send button") style:UIBarButtonItemStyleDone target:self action:@selector(sendButtonPressed:)];
@@ -143,7 +144,7 @@
     static NSInteger imageViewTag = 1000;
     static NSInteger labelTag = 1001;
     
-    UIImageView *thumbnail = (UIImage *)[cell.contentView viewWithTag:imageViewTag];
+    UIImageView *thumbnail = (UIImageView *)[cell.contentView viewWithTag:imageViewTag];
     UILabel *label = (UILabel *)[cell.contentView viewWithTag:labelTag];
     
     UICollectionViewFlowLayout *flowLayout = (UICollectionViewFlowLayout *)self.filterCollectionView.collectionViewLayout;
@@ -170,6 +171,10 @@
     label.text = self.filterTitles[indexPath.row];
     
     return cell;
+}
+
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    self.previewImageView.image = self.filterImages[indexPath.row];
 }
 
 - (void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
