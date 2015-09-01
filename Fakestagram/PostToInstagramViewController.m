@@ -7,6 +7,7 @@
 //
 
 #import "PostToInstagramViewController.h"
+#import "FilterCollectionViewCell.h"
 
 @interface PostToInstagramViewController () <UICollectionViewDataSource, UICollectionViewDelegate, UIDocumentInteractionControllerDelegate>
 
@@ -15,6 +16,7 @@
 
 @property (nonatomic, strong) NSOperationQueue *photoFilterOperationQueue;
 @property (nonatomic, strong) UICollectionView *filterCollectionView;
+@property (nonatomic, strong) FilterCollectionViewCell *filterView;
 
 @property (nonatomic, strong) NSMutableArray *filterImages;
 @property (nonatomic, strong) NSMutableArray *filterTitles;

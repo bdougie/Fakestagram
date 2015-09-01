@@ -46,6 +46,7 @@
 		33A9EB9D1B89B776000CE173 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EB9C1B89B776000CE173 /* CameraViewController.m */; };
 		33A9EBA31B89CFB5000CE173 /* UIImage+ImageUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */; };
 		33BE8EC91B6E47A4000DCB9C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */; };
+		33C4C1381B95D21A00BCF209 /* FilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 33C4C1371B95D21A00BCF209 /* FilterCollectionViewCell.m */; };
 		33F6CD921B5FD76800EEC211 /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD881B5FD76800EEC211 /* 1.jpg */; };
 		33F6CD931B5FD76800EEC211 /* 2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD891B5FD76800EEC211 /* 2.jpg */; };
 		33F6CD941B5FD76800EEC211 /* 3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 33F6CD8A1B5FD76800EEC211 /* 3.jpg */; };
@@ -134,6 +135,8 @@
 		33A9EBA21B89CFB5000CE173 /* UIImage+ImageUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageUtilities.m"; sourceTree = "<group>"; };
 		33BE8EC71B6E47A4000DCB9C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		33BE8EC81B6E47A4000DCB9C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		33C4C1361B95D21A00BCF209 /* FilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FilterCollectionViewCell.h; path = ../FilterCollectionViewCell.h; sourceTree = "<group>"; };
+		33C4C1371B95D21A00BCF209 /* FilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FilterCollectionViewCell.m; path = ../FilterCollectionViewCell.m; sourceTree = "<group>"; };
 		33F6CD881B5FD76800EEC211 /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.jpg; sourceTree = "<group>"; };
 		33F6CD891B5FD76800EEC211 /* 2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.jpg; sourceTree = "<group>"; };
 		33F6CD8A1B5FD76800EEC211 /* 3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.jpg; sourceTree = "<group>"; };
@@ -283,6 +286,8 @@
 				338479AC1B8361CC0030D7FB /* ComposeCommentView.m */,
 				333DD3E01B89E521003A89D8 /* CropBox.h */,
 				333DD3E11B89E521003A89D8 /* CropBox.m */,
+				33C4C1361B95D21A00BCF209 /* FilterCollectionViewCell.h */,
+				33C4C1371B95D21A00BCF209 /* FilterCollectionViewCell.m */,
 				33F6CDAB1B63DD7100EEC211 /* MediaTableViewCell.h */,
 				33F6CDAC1B63DD7100EEC211 /* MediaTableViewCell.m */,
 			);
@@ -536,6 +541,7 @@
 			files = (
 				33F6CD9E1B63BB0F00EEC211 /* User.m in Sources */,
 				333DD3E51B89EB01003A89D8 /* CropImageViewController.m in Sources */,
+				33C4C1381B95D21A00BCF209 /* FilterCollectionViewCell.m in Sources */,
 				33F6CDA41B63BF8400EEC211 /* Comment.m in Sources */,
 				33F6CDB31B64E3BF00EEC211 /* UIColorExt.m in Sources */,
 				33F6CDAD1B63DD7100EEC211 /* MediaTableViewCell.m in Sources */,
