@@ -56,7 +56,6 @@ static NSString * const reuseIdentifier = @"Cell";
             if ([PHPhotoLibrary authorizationStatus] == PHAuthorizationStatusAuthorized) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     [self loadAssets];
-                    [self.collectionView reloadData];
                 });
             }
         }];
@@ -68,6 +67,7 @@ static NSString * const reuseIdentifier = @"Cell";
 - (void) loadAssets {
     PHFetchOptions *options = [[PHFetchOptions alloc] init];
     options.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:YES]];
+    [self.collectionView reloadData];
     
     self.result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:options];
 }
