@@ -263,6 +263,37 @@
         }
     }];
     
+    // Chrome filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *chromeFilter = [CIFilter filterWithName:@"CIPhotoEffectChrome"];
+        
+        if (chromeFilter) {
+            [chromeFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            [self addCIImageToCollectionView:chromeFilter.outputImage withFilterTitle:NSLocalizedString(@"Chrome", @"Chrome Filter")];
+        }
+    }];
+    
+    // Oakland filter
+    
+    [self.photoFilterOperationQueue addOperationWithBlock:^{
+        CIFilter *gooFilter = [CIFilter filterWithName:@"CIPhotoEffectTonal"];
+        CIFilter *blurFilter = [CIFilter filterWithName:@"CIDiscBlur"];
+        
+        if (gooFilter) {
+            [gooFilter setValue:sourceCIImage forKey:kCIInputImageKey];
+            
+            CIImage *result = gooFilter.outputImage;
+            
+            if (blurFilter) {
+                [blurFilter setValue:result forKey:kCIInputImageKey];
+                result = blurFilter.outputImage;
+            }
+
+            [self addCIImageToCollectionView:result withFilterTitle:NSLocalizedString(@"Oakland", @"Oakland Filter")];
+        }
+    }];
+    
     // Drunk filter
     
     [self.photoFilterOperationQueue addOperationWithBlock:^{
