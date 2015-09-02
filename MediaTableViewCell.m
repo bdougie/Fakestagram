@@ -21,7 +21,6 @@
 @property (nonatomic, strong) UILabel *commentLabel;
 @property (nonatomic, strong) UILabel *likeCountLabel;
 @property (nonatomic, strong) NSLayoutConstraint *imageHeightConstraint;
-@property (nonatomic, strong) NSLayoutConstraint *imageWidthConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *likeHeightContraints;
 @property (nonatomic, strong) NSLayoutConstraint *usernameAndCaptionLabelHeightConstraint;
 @property (nonatomic, strong) NSLayoutConstraint *commentLabelHeightConstraint;
@@ -166,13 +165,6 @@ static NSParagraphStyle *paragraphStyle;
             [self.contentView addConstraints:self.horizontallyRegularConstraints];
         }
         
-        self.imageWidthConstraint = [NSLayoutConstraint constraintWithItem:_mediaImageView
-                                                                  attribute:NSLayoutAttributeWidth
-                                                                  relatedBy:NSLayoutRelationEqual
-                                                                     toItem:nil
-                                                                  attribute:NSLayoutAttributeNotAnAttribute
-                                                                 multiplier:1
-                                                                   constant: self.bounds.size.width];
         self.likeHeightContraints = [NSLayoutConstraint constraintWithItem:_likeCountLabel
                                                                   attribute:NSLayoutAttributeHeight
                                                                   relatedBy:NSLayoutRelationEqual
@@ -188,8 +180,6 @@ static NSParagraphStyle *paragraphStyle;
                                                                  multiplier:1
                                                                    constant:self.bounds.size.width];
         self.imageHeightConstraint.identifier = @"Image height constraint";
-        self.imageWidthConstraint.identifier = @"Image width constraint";
-        
         self.usernameAndCaptionLabelHeightConstraint = [NSLayoutConstraint constraintWithItem:_usernameAndCaptionLabel
                                                                                     attribute:NSLayoutAttributeHeight
                                                                                     relatedBy:NSLayoutRelationEqual
@@ -208,7 +198,7 @@ static NSParagraphStyle *paragraphStyle;
                                                                           constant:100];
         self.commentLabelHeightConstraint.identifier = @"Comment label height constraint";
         
-        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.imageWidthConstraint, self.likeHeightContraints]];
+        [self.contentView addConstraints:@[self.imageHeightConstraint, self.usernameAndCaptionLabelHeightConstraint, self.commentLabelHeightConstraint, self.likeHeightContraints]];
     }
     return self;
 }

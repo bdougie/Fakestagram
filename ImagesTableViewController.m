@@ -186,6 +186,12 @@
 - (void) cell:(MediaTableViewCell *)cell didTapImageView:(UIImageView *)imageView {
     MediaFullScreenViewController *fullScreenVC = [[MediaFullScreenViewController alloc] initWithMedia:cell.mediaItem];
     
+    if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
+        fullScreenVC.modalPresentationStyle = UIModalPresentationFormSheet;
+    } else {
+        fullScreenVC.modalPresentationStyle = UIModalPresentationCustom;
+    }
+    
     [self presentViewController:fullScreenVC animated:YES completion:nil];
 }
 
