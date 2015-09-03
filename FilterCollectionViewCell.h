@@ -10,4 +10,8 @@
 
 @interface FilterCollectionViewCell : UICollectionViewCell
 
+@property (strong, nonatomic) UIImageView *thumbnail;
+@property (strong, nonatomic) UILabel *label;
+- (void) layoutWithEdgeSize: (CGFloat) thumbnailEdgeSize;
+
 @end
