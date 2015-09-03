@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) NSArray *horizontalLines;
 @property (nonatomic, strong) NSArray *verticalLines;
+@property (nonatomic, strong) UIToolbar *topView;
+@property (nonatomic, strong) UIToolbar *bottomView;
 
 @end
 
@@ -27,6 +29,7 @@
         for (UIView *lineView in lines) {
             [self addSubview:lineView];
         }
+        [self createToolbars];
     }
     return self;
 }
@@ -81,5 +84,26 @@
     }
 }
 
+- (void) createToolbars {
+    UIColor *whiteBG = [UIColor colorWithWhite:1.0 alpha:.15];
+    
+    self.topView = [UIToolbar new];
+    self.bottomView = [UIToolbar new];
+    
+    self.topView.barTintColor = whiteBG;
+    self.bottomView.barTintColor = whiteBG;
+    self.topView.alpha = 0.5;
+    self.bottomView.alpha = 0.5;
+}
+
+- (void) addWidthCropBoxToolbar: (CGFloat)width layoutGuide:(CGFloat) topLayoutGuide {
+    self.topView.frame = CGRectMake(0, topLayoutGuide, width, 44);
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView = CGRectGetHeight(self.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    
+    self.frame = CGRectMake(0, CGRectGetMaxY(self.topView.frame), width, width);
+}
 
 @end

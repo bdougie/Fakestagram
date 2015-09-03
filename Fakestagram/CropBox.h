@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CropBox : UIView
-
+- (void) addWidthCropBoxToolbar: (CGFloat)width layoutGuide:(CGFloat) topLayoutGuide; 
 @end
