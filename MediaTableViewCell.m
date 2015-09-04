@@ -276,7 +276,7 @@ static NSParagraphStyle *paragraphStyle;
          }
      }
      else {
-         self.imageHeightConstraint.constant = 640;
+         self.imageHeightConstraint.constant = 0;
      }
  }
 
