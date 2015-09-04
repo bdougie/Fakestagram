@@ -9,10 +9,12 @@
 #import "MediaFullScreenViewController.h"
 #import "Media.h"
 
-@interface MediaFullScreenViewController () <UIScrollViewDelegate>
+
+@interface MediaFullScreenViewController () <UIScrollViewDelegate, UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) UITapGestureRecognizer *tap;
 @property (nonatomic, strong) UITapGestureRecognizer *doubletap;
+@property (nonatomic, strong) UITapGestureRecognizer *tapOutside;
 
 @end
 
@@ -62,6 +64,7 @@
     [self.scrollView addGestureRecognizer:self.tap];
     [self.scrollView addGestureRecognizer:self.doubletap];
     [self.view addSubview:shareButton];
+    
 }
 
 - (void)shareAction {
@@ -143,6 +146,19 @@
     [self centerScrollView];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    UITapGestureRecognizer *outsideTap = [[UITapGestureRecognizer alloc] init];
+    [outsideTap addTarget:self action:@selector(handleOutsideTap:)];
+    outsideTap.delegate = self;
+    self.tapOutside = outsideTap;
+    [self.view.window addGestureRecognizer:self.tapOutside];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.view.window removeGestureRecognizer:self.tapOutside];
+}
+
 #pragma mark - Gesture Recognizers
 
 - (void) tapFired:(UITapGestureRecognizer *)sender {
@@ -164,6 +180,15 @@
     } else {
         [self.scrollView setZoomScale:self.scrollView.minimumZoomScale animated:YES];
     }
+}
+
+- (void) handleOutsideTap:(UITapGestureRecognizer *)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer
+{
+   return YES;
 }
 
 @end
