@@ -79,6 +79,8 @@
         self.navigationItem.rightBarButtonItem = self.sendBarButton;
     }
     
+    [self createConstraints];
+    
     [self.filterCollectionView registerClass:[FilterCollectionViewCell class] forCellWithReuseIdentifier:@"cell"];
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -185,6 +187,14 @@
 
 - (void) collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
     self.previewImageView.image = self.filterImages[indexPath.row];
+}
+
+#pragma mark - Filter view contraints
+
+- (void) createConstraints {
+    NSDictionary *viewsDictionary = NSDictionaryOfVariableBindings(_previewImageView, _filterCollectionView, _sendButton);
+    NSArray *constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:[_previewImageView][_filterCollectionView][_sendButton]" options:kNilOptions metrics:nil views:viewsDictionary];
+    [self.view addConstraints:constraints];
 }
 
 #pragma mark - Photo Filters

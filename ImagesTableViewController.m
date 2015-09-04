@@ -188,8 +188,6 @@
     
     if (self.traitCollection.horizontalSizeClass == UIUserInterfaceSizeClassRegular) {
         fullScreenVC.modalPresentationStyle = UIModalPresentationFormSheet;
-    } else {
-        fullScreenVC.modalPresentationStyle = UIModalPresentationCustom;
     }
     
     [self presentViewController:fullScreenVC animated:YES completion:nil];
