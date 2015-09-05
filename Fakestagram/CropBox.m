@@ -25,11 +25,15 @@
     if (self) {
         self.userInteractionEnabled = NO;
         
-        NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
-        for (UIView *lineView in lines) {
-            [self addSubview:lineView];
-        }
         [self createToolbars];
+        
+        NSArray *lines = [self.horizontalLines arrayByAddingObjectsFromArray:self.verticalLines];
+        NSArray *views = [lines arrayByAddingObjectsFromArray:@[self.topView, self.bottomView]];
+       
+        for (UIView *view in views) {
+            [self addSubview:view];
+        }
+//        self.backgroundColor = [UIColor blueColor];
     }
     return self;
 }
@@ -66,15 +70,22 @@
     [super layoutSubviews];
     
     CGFloat width = CGRectGetWidth(self.frame);
+    CGFloat topViewHeight = (CGRectGetHeight(self.frame) - width)/2;
+    self.topView.frame = CGRectMake(0, 0, width, topViewHeight);
+    
+    CGFloat yOriginOfBottomView = CGRectGetMaxY(self.topView.frame) + width;
+    CGFloat heightOfBottomView  = CGRectGetHeight(self.frame) - yOriginOfBottomView;
+    self.bottomView.frame = CGRectMake(0, yOriginOfBottomView, width, heightOfBottomView);
+    
     CGFloat thirdOfWidth = width / 3;
     
     for (int i = 0; i < 4; i++) {
         UIView *horizontalLine = self.horizontalLines[i];
         UIView *verticalLine = self.verticalLines[i];
         
-        horizontalLine.frame = CGRectMake(0, (i * thirdOfWidth), width, 0.5);
+        horizontalLine.frame = CGRectMake(0, (i * thirdOfWidth) + topViewHeight, width, 0.5);
         
-        CGRect verticalFrame = CGRectMake(i * thirdOfWidth, 0, 0.5, width);
+        CGRect verticalFrame = CGRectMake(i * thirdOfWidth, topViewHeight, 0.5, width);
         
         if (i == 3) {
             verticalFrame.origin.x -= 0.5;
@@ -94,6 +105,9 @@
     self.bottomView.barTintColor = whiteBG;
     self.topView.alpha = 0.5;
     self.bottomView.alpha = 0.5;
+    
+    [self addSubview:self.topView];
+    [self addSubview:self.bottomView];
 }
 
 - (void) addWidthCropBoxToolbar: (CGFloat)width layoutGuide:(CGFloat) topLayoutGuide {
