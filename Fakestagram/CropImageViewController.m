@@ -15,8 +15,6 @@
 
 @property (nonatomic, strong) CropBox *cropBox;
 @property (nonatomic, assign) BOOL hasLoadedOnce;
-@property (nonatomic, strong) UIToolbar *topView;
-@property (nonatomic, strong) UIToolbar *bottomView;
 
 @end
 
@@ -41,9 +39,12 @@
     CGRect cropRect = CGRectZero;
     
     CGFloat edgeSize = MIN(CGRectGetWidth(self.view.frame), CGRectGetHeight(self.view.frame));
-    cropRect.size = CGSizeMake(edgeSize, edgeSize);
+    cropRect.size = CGSizeMake(edgeSize, CGRectGetHeight(self.view.frame));
     
     CGSize size = self.view.frame.size;
+    
+    CGFloat width = CGRectGetWidth(self.view.bounds);
+    [self.cropBox addWidthCropBoxToolbar:width layoutGuide:self.topLayoutGuide.length];
     
     self.cropBox.frame = cropRect;
     self.cropBox.center = CGPointMake(size.width / 2, size.height / 2);
@@ -77,9 +78,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
-    self.topView = [UIToolbar new];
-    self.bottomView = [UIToolbar new];
-    
     self.view.clipsToBounds = YES;
     
     [self.view addSubview:self.cropBox];
