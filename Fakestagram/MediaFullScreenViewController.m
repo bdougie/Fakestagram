@@ -147,6 +147,8 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
     UITapGestureRecognizer *outsideTap = [[UITapGestureRecognizer alloc] init];
     [outsideTap addTarget:self action:@selector(handleOutsideTap:)];
     outsideTap.delegate = self;
