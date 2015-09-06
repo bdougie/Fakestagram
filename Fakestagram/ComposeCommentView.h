@@ -25,5 +25,5 @@
 @property (nonatomic, strong) NSString *text;
 
 - (void) stopComposingComment;
-
+- (void) setText:(NSString *)text;
 @end;

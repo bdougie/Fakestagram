@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import "ComposeCommentView.h"
 
 @interface ComposCommentViewTests : XCTestCase
 
@@ -25,16 +26,16 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    XCTAssert(YES, @"Pass");
+- testThatComposeCommentsSetText {
+    ComposeCommentView *testCommentView = [[ComposeCommentView alloc] init];
+    [testCommentView setText:@"Yo this is text"];
+    
+    XCTAssertEqual(testCommentView.isWritingComment, (BOOL)YES, "Setting text successfully sets isWriting to True");
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- testThatComposeCommentsSetTextToNO {
+    ComposeCommentView *testCommentView = [[ComposeCommentView alloc] init];
+    
+    XCTAssertEqual(testCommentView.isWritingComment, (BOOL)NO, "Not setting text returns isWriting as false");
 }
-
 @end
