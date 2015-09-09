@@ -54,25 +54,39 @@
 }
 
 - (void)testThatHeightForMediaTableViewCellReturns {
-    NSDictionary *userDictionary = @{@"id" : @"8675309",
-                                       @"username" : @"d'oh",
-                                       @"full_name" : @"Homer Simpson",
-                                     @"profile_picture" : @"http://www.exampled.com/van.jpg"};
-
-    
-    NSDictionary *mediaDictionary = @{@"id" : @"8675309",
-                                      @"users" : userDictionary,
-                                      @"images" : @{@"standard_resolution" : @{@"url": @"http://exampleimage.com/1.jpg"}},
-                                      @"caption" : @{@"text" : @"This is text"},
-                                      @"user_has_liked" : @"true",
-                                      @"likes" : @{@"count" : @1                                 }
-                                      };
+    NSDictionary *mediaDictionary = @{@"id": @"8675309",
+                                      @"user": @{@"id": @"123456",
+                                      @"username": @"michael",
+                                      @"full_name": @"Michael Jordan",
+                                      @"profile_picture": @"http://fakeprofilepicture.com"
+                                      },
+                           @"image": @{@"standard_resolution": @{@"url": @"http://static1.squarespace.com/static/5426e6a8e4b0b8d209d99e20/t/55139488e4b0435203eaf247/1427346571530/heartIcon.png?format=300w"
+                                                                 }
+                                       },
+                           @"caption": @"This is a caption",
+                           @"comments": @{@"data": @[
+                                                  @{@"id": @"9899887",
+                                                    @"text": @"This is a comment",
+                                                    @"from": @{@"id": @"1325555",
+                                                               @"username": @"matt",
+                                                               @"full_name": @"Matthew Liu",
+                                                               @"profile_picture": @"http://fakeprofilepicture.com"
+                                                               }
+                                                    }
+                                                  ]
+                                          },
+                           @"user_has_liked": @YES,
+                           @"likes": @{@"count": @20}
+                           };
     
     Media *media = [[Media alloc] initWithDictionary:mediaDictionary];
     media.image = [UIImage imageNamed:@"1.jpg"];
-    UITraitCollection *traitCollection = [[UIApplication sharedApplication] keyWindow].traitCollection;
     
-    CGFloat height = [MediaTableViewCell heightForMediaItem:media width:[UIScreen mainScreen].bounds.size.width traitCollection:traitCollection];
+    UITraitCollection *traitCollection = [[MediaTableViewCell alloc] init].traitCollection;
+
+    
+    CGFloat height = [MediaTableViewCell heightForMediaItem:media width:320 traitCollection:traitCollection];
+    
     XCTAssert(height, @"height should be returned");
 }
 
