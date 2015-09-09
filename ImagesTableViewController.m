@@ -243,7 +243,6 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
-    
 }
 
 #pragma mark - Keyboard Handling

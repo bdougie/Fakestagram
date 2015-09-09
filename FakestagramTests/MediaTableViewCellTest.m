@@ -70,10 +70,10 @@
     
     Media *media = [[Media alloc] initWithDictionary:mediaDictionary];
     media.image = [UIImage imageNamed:@"1.jpg"];
-    UITraitCollection *traitCollection = [[UIApplication sharedApplication] keyWindow].traitCollection;
+    UITraitCollection *traitCollection = [[MediaTableViewCell alloc] init].traitCollection;
     
-    CGFloat height = [MediaTableViewCell heightForMediaItem:media width:[UIScreen mainScreen].bounds.size.width traitCollection:traitCollection];
-    XCTAssert(height, @"height should be returned");
+    CGFloat height = [MediaTableViewCell heightForMediaItem:media width:100 traitCollection:traitCollection];
+    XCTAssertEqual(height, 100, @"height should be returned");
 }
 
 @end
