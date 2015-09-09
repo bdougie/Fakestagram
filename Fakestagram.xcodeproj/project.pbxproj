@@ -88,7 +88,10 @@
 		3304CBA31B9B1D5800A7C868 /* MediaTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTests.m; sourceTree = "<group>"; };
 		3304CBA51B9B2DD800A7C868 /* ComposCommentViewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ComposCommentViewTests.m; sourceTree = "<group>"; };
 		3304CBA71B9B367500A7C868 /* MediaTableViewCellTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaTableViewCellTest.m; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		3304CBA91B9C49AD00A7C868 /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
+=======
+>>>>>>> 4406253a46d69673552cc718a716804fc55d89ba
 		333DD3E01B89E521003A89D8 /* CropBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropBox.h; sourceTree = "<group>"; };
 		333DD3E11B89E521003A89D8 /* CropBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CropBox.m; sourceTree = "<group>"; };
 		333DD3E31B89EB01003A89D8 /* CropImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CropImageViewController.h; sourceTree = "<group>"; };
@@ -243,7 +246,10 @@
 		333E3D501B577B2D00F087F6 /* FakestagramTests */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				3304CBA91B9C49AD00A7C868 /* 1.JPG */,
+=======
+>>>>>>> 4406253a46d69673552cc718a716804fc55d89ba
 				3304CBA71B9B367500A7C868 /* MediaTableViewCellTest.m */,
 				333E3D531B577B2D00F087F6 /* FakestagramTests.m */,
 				333E3D511B577B2D00F087F6 /* Supporting Files */,
